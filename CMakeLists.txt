@@ -1,0 +1,19 @@
+cmake_minimum_required(VERSION 3.22)
+project(osux)
+
+set(CMAKE_CXX_STANDARD 20)
+
+#find SDL stuff...
+list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
+find_package(SDL2 REQUIRED)
+find_package(SDL2_ttf REQUIRED)
+find_package(SDL2_mixer REQUIRED)
+find_package(SDL2_image REQUIRED)
+
+add_compile_definitions(__COMPILER_ID__="${CMAKE_C_COMPILER_ID}[${CMAKE_C_COMPILER}]" __COMPILER_VER__="${CMAKE_C_COMPILER_VERSION}")
+
+add_executable(osux src/main.cxx src/Core/Engine.cxx src/Core/Engine.hxx src/IO/Beatmap.cxx src/IO/Beatmap.hxx src/Util/StringSplit.hxx src/Entities/Osu/PlayingFieldEntity.cxx src/Entities/Osu/PlayingFieldEntity.hxx src/Entities/Osu/HitObjects/Circle.cxx src/Entities/Osu/HitObjects/Circle.hxx src/Util/Osu.hxx src/Util/Osu.cpp src/Textures.hxx src/Entities/PerformanceMeterEntity.cxx src/Entities/PerformanceMeterEntity.hxx src/Core/Entities/TextEntity.cxx src/Core/Entities/TextEntity.hxx src/IO/CommandLineArgs.cxx src/IO/CommandLineArgs.hxx src/IO/Logger.hxx src/Core/Components/ResourceManager.cxx src/Core/Components/ResourceManager.hxx src/include.hxx src/Core/Entity.hxx src/Core/EntityCollection.hxx src/Core/EntityCollection.cxx src/Core/Entity.cxx src/IO/Logger.cxx src/Core/Entities/WifeEntity.cxx src/Core/Entities/WifeEntity.hxx src/Core/Components/EventManager.cxx src/Core/Components/EventManager.hxx src/Entities/VolumeEntity.cxx src/Entities/VolumeEntity.hxx src/Core/Render.cxx src/Core/Render.hxx)
+add_custom_command(TARGET osux PRE_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/assets/ $<TARGET_FILE_DIR:osux>/assets/)
+
+include_directories(osux ${SDL2_INCLUDE_DIRS} ${SDL2_IMAGE_INCLUDE_DIRS} ${SDL2_MIXER_INCLUDE_DIRS} ${SDL2_TTF_INCLUDE_DIRS})
+target_link_libraries(osux -lm ${SDL2_LIBRARIES} ${SDL2_IMAGE_LIBRARIES} ${SDL2_MIXER_LIBRARIES} ${SDL2_TTF_LIBRARIES})
