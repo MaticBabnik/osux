@@ -6,7 +6,7 @@
 
 namespace Core::Render {
 
-    size_t SetupArc(SDL_Point center, float radius, float f, SDL_FPoint *out, size_t nPointsMax) {
+    size_t SetupArc(SDL_Point center, double i_rad, double o_rad, double f, SDL_FPoint *out, size_t nPointsMax) {
         size_t n = nPointsMax * f;
         out[0] = {(float) center.x, (float) center.y + radius};
         if (n == 0) return 1;
@@ -27,12 +27,4 @@ namespace Core::Render {
         return n;
     }
 
-    void RenderArc(SDL_FPoint *points, size_t n, int s) {
-        auto e = Engine::getRenderer();
-
-        SDL_RenderSetScale(e, s, s);
-        SDL_SetRenderDrawBlendMode(e, SDL_BLENDMODE_BLEND); //don't know
-        SDL_RenderDrawLinesF(e, points, n);
-        SDL_RenderSetScale(e, 1, 1);
-    }
 }

@@ -15,7 +15,7 @@ using namespace Core;
 int main() {
     IO::SetupLogging();
 
-    auto beatmap = new IO::Beatmap("/home/babnik/Downloads/freeze/kek.osu");
+    auto beatmap = new IO::Beatmap("/home/babnik/Downloads/freeze/fuckme.osu");
 
     Engine::Init(640, 480);
 

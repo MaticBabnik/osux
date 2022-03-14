@@ -12,7 +12,9 @@ void VolumeEntity::Render() {
         t--;
         tEnt->Render();
         SDL_SetRenderDrawColor(r, 255, 255, 255, 255);
-        Core::Render::RenderArc(points, n_points, 1);
+        for (int i =0; i<n_points-1; i++) {
+            //aaFilledPolygonRGBA(r, points[i].x, points[i].y, points[i+1].x, points[i+1].y,3, 255, 255, 255, 255);
+        }
     }
 }
 
@@ -33,7 +35,7 @@ VolumeEntity::VolumeEntity() {
 Core::EventControl VolumeEntity::onScrollWheelEvent(SDL_Event *e) {
     auto scroll = e->wheel.y;
     if (scroll != 0) {
-        t = 100;
+        t = 300;
         auto v = Mix_VolumeMusic(-1);
         Mix_VolumeMusic(v + scroll);
         tEnt->setText(std::to_string(v + scroll));

@@ -47,7 +47,7 @@ namespace Core {
     void Engine::Free() {
 
         logher(INFO, "engine") << "Freeing resources..." << endlog;
-
+        //TODO: fix SIGSEGV on exit don't know why
         delete resourceManager;
 
         SDL_DestroyRenderer(renderer);
