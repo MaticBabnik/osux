@@ -83,7 +83,6 @@ namespace Osu {
                 auto texture = Core::Engine::resourceManager->textures->getRawTexture("aproach_circle");
                 SDL_SetTextureAlphaMod(texture, min((int) (k * 512), 255));
                 SDL_RenderCopy(r, texture, nullptr, &this->approach_rect);
-                //TODO: maybe reset texture alpha??????????
             }
 
             SDL_RenderDrawRect(r, &rect);

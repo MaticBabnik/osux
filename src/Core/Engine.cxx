@@ -8,10 +8,7 @@
 
 
 /*
- * TODO: Scene system
- * TODO: Sound system?
- * TODO: unscuff the entity system?
- * TODO: Events?
+ * TODO: Scenes system
  */
 
 namespace Core {

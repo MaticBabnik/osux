@@ -7,7 +7,7 @@ namespace Core::Entities {
 
     class TextEntity : public Entity {
     public:
-        TextEntity(TTF_Font *font, SDL_Point origin, SDL_Color color, std::string text);
+        TextEntity(TTF_Font *font, SDL_Point origin, SDL_Color color, std::string text,bool centered = true);
 
         SDL_Point getOrigin();
 
@@ -28,10 +28,12 @@ namespace Core::Entities {
     protected:
         string text;
         SDL_Rect textRect;
+        SDL_Point origin;
         SDL_Color color;
         TTF_Font *font;
         SDL_Surface *textSurface;
         SDL_Texture *textTexture;
+        bool centered;
 
         bool repaintNeeded;
 

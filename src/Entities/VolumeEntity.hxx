@@ -6,8 +6,10 @@
 
 class VolumeEntity : public Core::Entity {
 protected:
-    Core::Entities::TextEntity *tEnt;
-    SDL_FPoint points[64];
+    const inline static size_t max_points = 48;
+    Core::Entities::TextEntity *tEnt, *tEnt2;
+    double px[max_points];
+    double py[max_points];
     size_t n_points;
     int t = 0;
 
