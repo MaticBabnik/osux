@@ -2,7 +2,7 @@
 
 #include "../../include.hxx"
 #include "../Engine.hxx"
-
+#include "Scene.hxx"
 namespace Core::Scenes {
 
     //TODO: implement
@@ -13,8 +13,12 @@ namespace Core::Scenes {
      *
      * I also need to come up with a way to send state between scenes...
      * maybe with global maps of key:int, key:string and so on...
+     *
+     * It should also be able to show "new" scenes (without them being added to the map)
      */
     class SceneManager {
-
+        //SwitchScene
+        //Render(Top level render)
+        // popup layer???
     };
 }

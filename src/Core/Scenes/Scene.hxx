@@ -6,9 +6,9 @@
 namespace Core::Scenes {
     //TODO: Implement
     /*
-     *  Basically just an EntityCollection; might get some aditional things down the road.
+     *  Basically just an EntityCollection; might get some additional things down the road.
      */
-    class Scene : public Entity {
+    class Scene : public EntityCollection {
 
     };
 }

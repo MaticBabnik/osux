@@ -3,6 +3,7 @@
 #include "Entity.hxx"
 #include "../include.hxx"
 #include <vector>
+#include <list>
 
 //this is a bad idea
 
@@ -10,7 +11,8 @@ namespace Core {
 
     class EntityCollection : public Entity {
     protected:
-        std::vector<Entity *> *entities;
+        std::list<Entity *> *entities;
+        size_t n_ent;
     public:
         EntityCollection();
 

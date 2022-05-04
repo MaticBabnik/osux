@@ -16,7 +16,7 @@ namespace IO {
         int time;
         double beatLength;
         int meter, sampleSet, sampleIndex, volume;
-        bool uninherited;
+        bool uninherited; //why????
         int effects;
     };
 
@@ -76,7 +76,6 @@ namespace IO {
 
         vector<TimingPoint> TimingPoints;
         vector<HitObject> HitObjects;
-
         const string &getAudioPath() const;
 
     protected:

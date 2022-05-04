@@ -38,28 +38,17 @@ namespace Osu {
             logher(ERROR, "Slider") << "Sliders aren't implemented yet" << endlog;
         }
 
-        ~Slider() override {
-            logher(ERROR, "Slider") << "Destructor called" << endlog;
-        }
-
         void Render() override {
-            if (this->parent == nullptr) {
-                logher(FATAL, "Slider") << "Parent is null" << endlog;
-                return;
-            }
-
             auto t = parent->getTime();
 
             if (time + 2000 < t) {
-                //TODO
-                logher(INFO,"Circle") << "Deleting " << this << endlog;
                 this->parent->DestroyEntity(this);
                 return;
             }
             auto r = Core::Engine::getRenderer();
 
-            SDL_RenderCopy(r, Core::Engine::resourceManager->textures->getRawTexture("intro_1"), nullptr,
-                           &rect);
+            SDL_RenderCopy(r, Core::Engine::resourceManager->textures->getRawTexture("intro_1"),
+                           nullptr, &rect);
 
         }
 

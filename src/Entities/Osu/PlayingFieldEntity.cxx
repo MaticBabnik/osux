@@ -75,16 +75,19 @@ namespace Osu {
 
         }
 
+        auto iterator = this->entities->begin();
+        size_t i = 0;
+        auto sz = this->n_ent;
 
-        Entity* ep = nullptr;
-
-        for (Core::Entity *e: *this->entities) {
-            if (e == ep ){
-                logher(ERROR,"PlayingField") << "Duplicate entity in PlayingFieldEntity.entities ( " << e << " == " << ep << " )" << endl;
-                continue;
+        while (iterator != this->entities->end()) {
+            (*iterator)->Render();
+            iterator++;
+            i++;
+            if (i > this->n_ent) {
+                logher(DEBUG, "PFE render") << "Iterator OOB, exiting render loop." << i << ">=" <<this->n_ent << endlog;
+                break;
             }
-            ep = e;
-            e->Render();
         }
+
     }
 }
