@@ -151,19 +151,39 @@ namespace IO {
             //split string on commas
             auto split = StringSplit(currentLine, ",");
             HitObject ho{};
-
+            ho.dummy_args = nullptr;
             ho.x = stoi(split[0]);
             ho.y = stoi(split[1]);
             ho.time = stoi(split[2]) + this->General.AudioLeadIn;
 
             int type = stoi(split[3]);
 
-            if (type & (int) HitObjectType::HitCircle)
+            if (type & (int) HitObjectType::HitCircle) {
                 ho.type = HitObjectType::HitCircle;
-            else if (type & (int) HitObjectType::Slider)
+                // we don't care about the rest of the data
+            } else if (type & (int) HitObjectType::Slider) {
                 ho.type = HitObjectType::Slider;
-            else if (type & (int) HitObjectType::Spinner)
+                //parseSliderArgs
+                // x,y,time,type,hitSound,curveType|curvePoints,slides,length,edgeSounds,edgeSets,hitSample
+                ho.slider_args = new SliderArgs();
+                ho.slider_args->type = (SliderType) split[5][0];
+                ho.slider_args->repeat = stoi(split[6]);
+                ho.slider_args->length = (int)stod(split[7]);
+
+                //parse curve points
+                auto curvePoints = StringSplit(split[5], "|");
+                ho.slider_args->points = vector<OsuPoint>();
+
+                for (int i = 1; i < curvePoints.size(); i++) {
+                    auto curvePointSplit = StringSplit(curvePoints[i], ":");
+                    auto op = OsuPoint{stoi(curvePointSplit[0]), stoi(curvePointSplit[1])};
+                    ho.slider_args->points.push_back(op);
+                }
+
+            } else if (type & (int) HitObjectType::Spinner) {
                 ho.type = HitObjectType::Spinner;
+                // we don't care about the rest of the data
+            }
 
             this->HitObjects.push_back(ho);
         }

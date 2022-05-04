@@ -26,6 +26,8 @@ namespace Core {
                         ent));
 
         ent->setParent(nullptr);
+
+        logher(INFO,"ECol") << "Removed entity " << ent << endlog;
     }
 
     void EntityCollection::DestroyEntity(Entity *ent) {

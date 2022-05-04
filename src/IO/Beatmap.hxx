@@ -9,7 +9,6 @@
 using namespace std;
 
 //ummmm class that parses beatmaps
-
 //fuck ppy, fuck osu file format v14
 
 namespace IO {
@@ -27,9 +26,31 @@ namespace IO {
         Spinner = 1 << 3,
     };
 
+    enum class SliderType : char {
+        Linear = 'L',
+        Catmull = 'C',
+        Bezier = 'B',
+        Circle = 'P',
+    };
+
+    struct OsuPoint {
+        int x, y;
+    };
+
+    struct SliderArgs {
+        SliderType type;
+        int repeat;
+        vector<OsuPoint> points;
+        int length;
+    };
+
     struct HitObject {
         int x, y;
         int time;
+        union {
+            SliderArgs *slider_args;
+            void *dummy_args;
+        };
         HitObjectType type;
     };
 

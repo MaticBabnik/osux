@@ -3,6 +3,7 @@
 
 #include "../../Util/Osu.hxx"
 #include "HitObjects/Circle.hxx"
+#include "HitObjects/Slider.hxx"
 
 using namespace Core;
 using namespace std;
@@ -53,20 +54,36 @@ namespace Osu {
             if (this->beatmap->HitObjects.size() < this->index) break;
 
             auto ho = this->beatmap->HitObjects[this->index];
-            if (ho.type != IO::HitObjectType::HitCircle) {
-                index++;
-                continue;
-            }
+
             if (ho.time - this->preempt < globaltime) { //hitobject should be rendered
-                this->AddEntity(new Circle(&ho, beatmap, this));
-                index++;
+                switch (ho.type) {
+                    case IO::HitObjectType::HitCircle:
+                        this->AddEntity(new Circle(&ho, beatmap, this));
+                        index++;
+                        break;
+                    case IO::HitObjectType::Slider:
+                        this->AddEntity(new Slider(&ho, beatmap, this));
+                        index++;
+                        break;
+                    default:
+                        index++;
+                        break;
+                }
             } else {
                 break;
             }
 
         }
 
+
+        Entity* ep = nullptr;
+
         for (Core::Entity *e: *this->entities) {
+            if (e == ep ){
+                logher(ERROR,"PlayingField") << "Duplicate entity in PlayingFieldEntity.entities ( " << e << " == " << ep << " )" << endl;
+                continue;
+            }
+            ep = e;
             e->Render();
         }
     }

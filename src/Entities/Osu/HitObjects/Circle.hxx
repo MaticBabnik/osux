@@ -55,6 +55,11 @@ namespace Osu {
         }
 
         void Render() override {
+            if (this->parent == nullptr) {
+                logher(FATAL, "Circle") << "Parent is null" << endlog;
+                return;
+            }
+
             auto t = parent->getTime();
 
             if (time + 120 < t) {
@@ -85,8 +90,6 @@ namespace Osu {
                 SDL_RenderCopy(r, texture, nullptr, &this->approach_rect);
             }
 
-            SDL_RenderDrawRect(r, &rect);
-            //render the circle
         }
 
     private:

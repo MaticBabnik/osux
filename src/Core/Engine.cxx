@@ -12,6 +12,9 @@
  */
 
 namespace Core {
+
+    constexpr auto noBitches = true;
+
     void Engine::Init(uint w, uint h) {
         SDL_Init(SDL_INIT_EVERYTHING);
 
@@ -68,7 +71,7 @@ namespace Core {
 
         SDL_ShowWindow(window);
 
-        while (true) {
+        while (noBitches) {
             SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
             SDL_RenderClear(renderer);
 
