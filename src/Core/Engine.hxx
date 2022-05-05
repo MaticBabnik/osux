@@ -8,7 +8,7 @@
 #include "../IO/Logger.hxx"
 
 #include "Components/ResourceManager.hxx"
-#include "Components/EventManager.hxx"
+#include "Components/SceneManager.hxx"
 
 #include "Entities/TextEntity.hxx"
 #include "Entities/WifeEntity.hxx" //best entity ever
@@ -26,10 +26,7 @@ namespace Core {
 
     public:
         static inline ResourceManager *resourceManager;
-
-        static inline EventManager *eventManager;
-
-        static inline EntityCollection *activeScene;
+        static inline SceneManager* sceneManager;
 
         static SDL_Window *getWindow();
 

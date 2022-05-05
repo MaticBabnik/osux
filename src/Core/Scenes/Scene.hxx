@@ -1,14 +1,13 @@
 #pragma once
 
-#include "../../include.hxx"
-#include "../Engine.hxx"
+#include "../EntityCollection.hxx"
+#include "../Components/EventManager.hxx"
 
-namespace Core::Scenes {
-    //TODO: Implement
-    /*
-     *  Basically just an EntityCollection; might get some additional things down the road.
-     */
+namespace Core {
     class Scene : public EntityCollection {
-
+    public:
+        EventManager *eventManager;
+        Scene();
+        ~Scene() override;
     };
 }

@@ -16,7 +16,7 @@ namespace Core {
     public:
         EntityCollection();
 
-        virtual void Render();
+        virtual void Render() override;
 
         virtual void AddEntity(Entity *ent);
 

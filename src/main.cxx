@@ -6,7 +6,7 @@
 #include "Textures.hxx"
 
 #include "Core/Engine.hxx"
-
+#include "Core/Scenes/Scene.hxx"
 #include "Entities/Osu/PlayingFieldEntity.hxx"
 #include "Entities/VolumeEntity.hxx"
 
@@ -20,7 +20,7 @@ int main() {
     Engine::Init(640, 480);
 
 
-    for (const auto &p: textureList) {
+    for (const auto &p: textureList) { //load textures
         auto r = Engine::resourceManager->textures->load(p.first, p.second);
         if (r == nullptr) {
             logher(FATAL, "osux") << "Could not load texture: " << p.first << " from " << p.second << endlog;
@@ -30,16 +30,7 @@ int main() {
 
     Mix_VolumeMusic(5);
 
-    auto playingField = new Osu::PlayingFieldEntity(beatmap);
-    Engine::activeScene->AddEntity(new WifeEntity());
-    Engine::activeScene->AddEntity(playingField);
-    Engine::activeScene->AddEntity(new VolumeEntity());
-
     logher(INFO, "osux") << "Initalization done; starting the main loop" << endlog;
-
-
-    auto m = Engine::resourceManager->music->load("beatmap_main", beatmap->getAudioPath());
-    Mix_PlayMusic(m, 0);
 
     Engine::RunLoop();
 

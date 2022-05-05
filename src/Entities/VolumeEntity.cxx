@@ -3,7 +3,7 @@
 VolumeEntity::~VolumeEntity() {
     delete this->tEnt;
     delete this->tEnt2;
-    Core::Engine::eventManager->clearAllListeners(this);
+    Core::Engine::sceneManager->getActiveScene()->eventManager->clearAllListeners(this);
 }
 
 
@@ -24,7 +24,7 @@ VolumeEntity::VolumeEntity() {
     SDL_Point o = {100, 100};
     tEnt = new Core::Entities::TextEntity(f, o, white, "100");
     tEnt2 = new Core::Entities::TextEntity(f,{130,95},white,"Master volume",false);
-    Core::Engine::eventManager->addEventListener(this, SDL_MOUSEWHEEL, 0,
+    Core::Engine::sceneManager->getActiveScene()->eventManager->addEventListener(this, SDL_MOUSEWHEEL, 0,
                                                  [this](SDL_Event *e) {
                                                      return this->onScrollWheelEvent(e);
                                                  });

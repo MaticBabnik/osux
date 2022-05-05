@@ -6,14 +6,10 @@
 #include <SDL2/SDL_mixer.h>
 #include <SDL2/SDL_image.h>
 
-
-/*
- * TODO: Scenes system
- */
-
+#include "./Scenes/DefaultScene.hxx"
 namespace Core {
 
-    constexpr auto noBitches = true;
+    constexpr auto noBitches = true; //haha very funny
 
     void Engine::Init(uint w, uint h) {
         SDL_Init(SDL_INIT_EVERYTHING);
@@ -32,14 +28,7 @@ namespace Core {
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 
         resourceManager = new ResourceManager();
-        eventManager = new EventManager();
-
-        eventManager->addEventListener(nullptr, SDL_QUIT, 100000, [](SDL_Event *e) {
-            exit(0);
-            return EventControl::HANDLED; //don't delete me
-        });
-
-        activeScene = new EntityCollection();
+        sceneManager = new SceneManager(new DefaultScene());
 
         atexit(Free);
     }
@@ -47,7 +36,7 @@ namespace Core {
     void Engine::Free() {
 
         logher(INFO, "engine") << "Freeing resources..." << endlog;
-        //TODO: fix SIGSEGV on exit don't know why
+        //TODO: fix SIGSEGV on exit don't know why ?
         delete resourceManager;
 
         SDL_DestroyRenderer(renderer);
@@ -77,10 +66,13 @@ namespace Core {
 
             SDL_Event e;
             while (SDL_PollEvent(&e)) {
-                eventManager->dispatchEvent(&e);
+                sceneManager
+                        ->getActiveScene()
+                        ->eventManager
+                        ->dispatchEvent(&e);
             }
 
-            activeScene->Render();
+            sceneManager->getActiveScene()->Render();
 
             SDL_RenderPresent(renderer);
             SDL_Delay(10); //scuffed fps limiter
