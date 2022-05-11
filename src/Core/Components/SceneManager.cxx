@@ -15,4 +15,5 @@ Core::Scene *Core::SceneManager::getActiveScene() {
 void Core::SceneManager::SwitchScene(Core::Scene *newScene) {
     delete activeScene;
     this->activeScene = newScene;
+    this->activeScene->Activate();
 }

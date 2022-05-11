@@ -7,7 +7,6 @@ namespace Core {
     }
 
     EntityCollection::~EntityCollection() {
-        logher(DEBUG,"EntityCollection")<< "Destructor called"<<endlog;
         for (Entity *ent: *this->entities) {
             delete ent;
         }

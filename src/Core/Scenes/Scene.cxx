@@ -7,3 +7,7 @@ Core::Scene::Scene() {
 Core::Scene::~Scene() {
     delete this->eventManager;
 }
+
+void Core::Scene::Activate() {
+    logher(WARN,"sceneScene") << "Default activate called!" << endlog;
+}

@@ -8,6 +8,7 @@ namespace Core {
     public:
         EventManager *eventManager;
         Scene();
+        virtual void Activate();
         ~Scene() override;
     };
 }

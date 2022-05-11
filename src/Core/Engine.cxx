@@ -18,8 +18,8 @@ namespace Core {
         TTF_Init();
         Mix_Init(MIX_INIT_FLAC | MIX_INIT_MP3 | MIX_INIT_OGG | MIX_INIT_OPUS);
 
-        window = SDL_CreateWindow("osuX! - press the ovals", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, w, h,
-                                  SDL_WINDOW_HIDDEN);
+        window = SDL_CreateWindow("osuX", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, w, h,
+                                  SDL_WINDOW_FULLSCREEN);
         renderer = SDL_CreateRenderer(window, 0, SDL_RENDERER_ACCELERATED);
 
         Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 1024);
@@ -28,7 +28,8 @@ namespace Core {
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 
         resourceManager = new ResourceManager();
-        sceneManager = new SceneManager(new DefaultScene());
+        sceneManager = new SceneManager(nullptr);
+
 
         atexit(Free);
     }
@@ -56,8 +57,9 @@ namespace Core {
         return renderer;
     }
 
-    [[noreturn]] void Engine::RunLoop() {
+    [[noreturn]] void Engine::RunLoop(Scene *firstScene) {
 
+        sceneManager->SwitchScene(firstScene);
         SDL_ShowWindow(window);
 
         while (noBitches) {
@@ -77,6 +79,13 @@ namespace Core {
             SDL_RenderPresent(renderer);
             SDL_Delay(10); //scuffed fps limiter
         }
+    }
+
+    SDL_Rect Engine::getPaintArea() {
+        SDL_Rect r {-1,-1,0,0};
+        SDL_GetWindowSize(getWindow(),&r.w,&r.h);
+
+        return r;
     }
 
 }

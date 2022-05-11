@@ -10,8 +10,11 @@ namespace Core {
     class DefaultScene : public Scene {
     protected:
         ulong initTime;
+        bool giveUp;
+        Scene *next;
+        Entities::TextEntity *te;
     public:
-        DefaultScene();
+        DefaultScene(Scene *nextScene);
 
         void Render();
     };

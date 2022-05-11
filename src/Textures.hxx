@@ -11,4 +11,5 @@ const map<string, string> textureList = {
         {"hitcircle_active", "assets/hitcircle_active.png"},
         {"intro_1",          "assets/intro_1.png"},
         {"intro_2",          "assets/intro_2.png"},
+        {"logo",             "assets/logo.png"}
 };

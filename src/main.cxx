@@ -9,6 +9,10 @@
 #include "Core/Scenes/Scene.hxx"
 #include "Entities/Osu/PlayingFieldEntity.hxx"
 #include "Entities/VolumeEntity.hxx"
+#include "Scenes/BeatmapScene.hxx"
+#include "Scenes/SliderTestScene.hxx"
+#include "Scenes/MenuScene.hxx"
+#include "Core/Scenes/DefaultScene.hxx"
 
 using namespace Core;
 
@@ -28,11 +32,13 @@ int main() {
         }
     }
 
-    Mix_VolumeMusic(5);
+    Mix_VolumeMusic(40);
 
     logher(INFO, "osux") << "Initalization done; starting the main loop" << endlog;
 
-    Engine::RunLoop();
+    auto krogi = Engine::resourceManager->music->load("circles","assets/nekodex-circles.mp3");
+    Mix_PlayMusic(krogi,0);
+    Engine::RunLoop(new DefaultScene(new MenuScene()));
 
     return 0;
 }

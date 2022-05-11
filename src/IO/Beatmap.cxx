@@ -8,10 +8,12 @@
 #include <iostream>
 #include <vector>
 #include <filesystem>
+#include <chrono>
 
 #include "Logger.hxx"
 #include "../Util/StringSplit.hxx"
 
+using namespace std::chrono;
 using namespace std;
 
 namespace IO {
@@ -20,6 +22,7 @@ namespace IO {
         std::fstream fs;
         fs.open(path, std::fstream::in);
         string currentLine;
+        auto st = high_resolution_clock::now();
         while (getline(fs, currentLine)) {
             if (!currentLine.starts_with("[")) continue;
             auto end = currentLine.find(']');
@@ -44,6 +47,9 @@ namespace IO {
 
         std::filesystem::path p(path);
         this->audiopath = (p.parent_path() / this->General.AudioFilename).string();
+
+        auto time = duration_cast<microseconds>(high_resolution_clock::now() - st);
+        logher(INFO, "Beatmap") << "Parsing done in " << time.count() << " us ... FUCK YOU PPY" <<endlog;
     }
 
     void Beatmap::parseGeneral(fstream &file) {
@@ -170,13 +176,14 @@ namespace IO {
                 ho.slider_args->repeat = stoi(split[6]);
                 ho.slider_args->length = (int)stod(split[7]);
 
+                logher(DEBUG,"Beatmap")<<split[5]<<endlog;
                 //parse curve points
                 auto curvePoints = StringSplit(split[5], "|");
-                ho.slider_args->points = vector<OsuPoint>();
+                ho.slider_args->points = vector<SDL_Point>();
 
                 for (int i = 1; i < curvePoints.size(); i++) {
                     auto curvePointSplit = StringSplit(curvePoints[i], ":");
-                    auto op = OsuPoint{stoi(curvePointSplit[0]), stoi(curvePointSplit[1])};
+                    auto op = SDL_Point{stoi(curvePointSplit[0]), stoi(curvePointSplit[1])};
                     ho.slider_args->points.push_back(op);
                 }
 

@@ -2,6 +2,8 @@
 
 #include "../include.hxx"
 
+#include "SdlExtensions.hxx"
+
 #include "Entity.hxx"
 #include "EntityCollection.hxx"
 
@@ -12,6 +14,7 @@
 
 #include "Entities/TextEntity.hxx"
 #include "Entities/WifeEntity.hxx" //best entity ever
+#include "Entities/SpriteEntity.hxx"
 
 namespace Core {
     //TODO: scene system, to avoid having to handle multiple entities here
@@ -32,7 +35,9 @@ namespace Core {
 
         static SDL_Renderer *getRenderer();
 
-        [[noreturn]] static void RunLoop();
+        static SDL_Rect getPaintArea();
+
+        [[noreturn]] static void RunLoop(Scene *firstScene);
 
         static void Init(uint w, uint h);
 

@@ -5,12 +5,11 @@
 #include <vector>
 #include <regex>
 #include <map>
-
+#include "../include.hxx"
 using namespace std;
 
 //ummmm class that parses beatmaps
 //fuck ppy, fuck osu file format v14
-
 namespace IO {
     struct TimingPoint {
         int time;
@@ -33,14 +32,10 @@ namespace IO {
         Circle = 'P',
     };
 
-    struct OsuPoint {
-        int x, y;
-    };
-
     struct SliderArgs {
         SliderType type;
         int repeat;
-        vector<OsuPoint> points;
+        vector<SDL_Point> points;
         int length;
     };
 
@@ -76,6 +71,13 @@ namespace IO {
 
         vector<TimingPoint> TimingPoints;
         vector<HitObject> HitObjects;
+
+
+
+
+
+
+
         const string &getAudioPath() const;
 
     protected:

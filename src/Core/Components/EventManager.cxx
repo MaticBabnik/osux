@@ -2,6 +2,11 @@
 
 Core::EventManager::EventManager() {
     eventHandlers = new map<SDL_EventType, vector<Event> *>();
+    //register default quit handler
+    this->addEventListener(this,SDL_QUIT,0, [] (SDL_Event *e) {
+        exit(0);
+        return EventControl::HANDLED;
+    });
 }
 
 Core::EventManager::~EventManager() {

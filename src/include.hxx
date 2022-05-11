@@ -2,11 +2,18 @@
 //  Global include file for osux
 //
 
-//commonly used stl headers
+//need
 #include <map>
 #include <list>
 #include <vector>
 #include <string>
+
+//math stuff
+#include <cmath>
+#include <numbers>
+
+// file and console IO
+#include <fstream>
 #include <iostream>
 
 // SDL2
@@ -14,7 +21,8 @@
 #include <SDL2/SDL_ttf.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_mixer.h>
-//#include <SDL2/SDL2_gfxPrimitives.h>
+// very cool
 #include "SDL2_gfx_bbc/SDL2_gfxPrimitives.h"
-// logging
+
+// make the logger "global"
 #include "IO/Logger.hxx"

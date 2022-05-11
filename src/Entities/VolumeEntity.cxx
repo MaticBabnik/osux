@@ -19,11 +19,11 @@ void VolumeEntity::Render() {
 }
 
 VolumeEntity::VolumeEntity() {
-    auto f = Core::Engine::resourceManager->fonts->load("sp7", "assets/sp7.ttf", 20);
+    auto f = Core::Engine::resourceManager->fonts->load("roboto", "assets/robot.ttf", 20);
     SDL_Color white = {255, 255, 255, 255};
     SDL_Point o = {100, 100};
     tEnt = new Core::Entities::TextEntity(f, o, white, "100");
-    tEnt2 = new Core::Entities::TextEntity(f,{130,95},white,"Master volume",false);
+    tEnt2 = new Core::Entities::TextEntity(f,{200,100},white,"Master volume",true);
     Core::Engine::sceneManager->getActiveScene()->eventManager->addEventListener(this, SDL_MOUSEWHEEL, 0,
                                                  [this](SDL_Event *e) {
                                                      return this->onScrollWheelEvent(e);
