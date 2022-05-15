@@ -11,15 +11,26 @@ namespace Core {
 
     constexpr auto noBitches = true; //haha very funny
 
-    void Engine::Init(uint w, uint h) {
+    void Engine::Init(uint w, uint h, bool fullscreen) {
         SDL_Init(SDL_INIT_EVERYTHING);
 
         IMG_Init(IMG_INIT_PNG | IMG_INIT_JPG);
         TTF_Init();
         Mix_Init(MIX_INIT_FLAC | MIX_INIT_MP3 | MIX_INIT_OGG | MIX_INIT_OPUS);
+        if (fullscreen) {
 
-        window = SDL_CreateWindow("osuX", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, w, h,
-                                  SDL_WINDOW_FULLSCREEN);
+        SDL_DisplayMode dm;
+        auto code = SDL_GetDesktopDisplayMode(0,&dm);
+        if (code != 0) {
+            logher(ERROR,"Engine") << "Couldn't get display mode: "<< code <<endlog;
+
+            dm.w =w;
+            dm.h =h;
+        }
+            window = SDL_CreateWindow("osuX", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, dm.w, dm.h,SDL_WINDOW_FULLSCREEN);
+        }else {
+            window = SDL_CreateWindow("osuX", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, w, h,0);
+        }
         renderer = SDL_CreateRenderer(window, 0, SDL_RENDERER_ACCELERATED);
 
         Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 1024);

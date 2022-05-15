@@ -39,7 +39,7 @@ namespace Core {
 
         [[noreturn]] static void RunLoop(Scene *firstScene);
 
-        static void Init(uint w, uint h);
+        static void Init(uint w, uint h, bool fullscreen);
 
         static void Free();
 

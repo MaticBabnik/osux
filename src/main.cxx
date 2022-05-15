@@ -21,7 +21,7 @@ int main() {
 
     auto beatmap = new IO::Beatmap("/home/babnik/Downloads/freeze/fuckme.osu");
 
-    Engine::Init(640, 480);
+    Engine::Init(640, 480,true);
 
 
     for (const auto &p: textureList) { //load textures
