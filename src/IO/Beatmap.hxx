@@ -1,11 +1,9 @@
 #pragma once
 
-#include <string>
 #include <fstream>
-#include <vector>
-#include <regex>
-#include <map>
 #include "../include.hxx"
+#include "../Core/Math2D.hxx"
+
 using namespace std;
 
 //ummmm class that parses beatmaps
@@ -33,10 +31,8 @@ namespace IO {
     };
 
     struct SliderArgs {
-        SliderType type;
         int repeat;
         vector<SDL_Point> points;
-        int length;
     };
 
     struct HitObject {
@@ -96,6 +92,8 @@ namespace IO {
         void parseColours(fstream &file);
 
         void parseHitObjects(fstream &file);
+
+        void resolveSlider(HitObject &ho,vector<SDL_Point> &points , SliderType type, double length);
     };
 }
 

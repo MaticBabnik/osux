@@ -7,7 +7,11 @@
 using namespace std;
 
 namespace Core {
+    double distance(Vec2 v1, Vec2 v2);
+    Vec2 delta(Vec2 v1, Vec2 v2);
     long dot_product(Vec2 v1, Vec2 v2);
+    Vec2 fix_point(Vec2 v1, Vec2 v2, double newDistance);
+
     float binomial_coefficent(int n, int k);
     namespace Catmull {
         float get_t(float t, float alpha, const Vec2 p0, const Vec2 &p1);

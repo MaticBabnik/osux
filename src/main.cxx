@@ -35,10 +35,12 @@ int main() {
     Mix_VolumeMusic(40);
 
     logher(INFO, "osux") << "Initalization done; starting the main loop" << endlog;
+    auto n = new BeatmapScene(beatmap);
+    //auto krogi = Engine::resourceManager->music->load("circles","assets/nekodex-circles.mp3");
+    //Mix_PlayMusic(krogi,0);
 
-    auto krogi = Engine::resourceManager->music->load("circles","assets/nekodex-circles.mp3");
-    Mix_PlayMusic(krogi,0);
-    Engine::RunLoop(new DefaultScene(new MenuScene()));
+    //new MenuScene()
+    Engine::RunLoop(new DefaultScene(n));
 
     return 0;
 }

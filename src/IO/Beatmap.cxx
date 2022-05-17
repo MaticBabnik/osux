@@ -49,7 +49,7 @@ namespace IO {
         this->audiopath = (p.parent_path() / this->General.AudioFilename).string();
 
         auto time = duration_cast<microseconds>(high_resolution_clock::now() - st);
-        logher(INFO, "Beatmap") << "Parsing done in " << time.count() << " us ... FUCK YOU PPY" <<endlog;
+        logher(INFO, "Beatmap") << "Parsing done in " << time.count() << " us ... FUCK YOU PPY" << endlog;
     }
 
     void Beatmap::parseGeneral(fstream &file) {
@@ -148,6 +148,7 @@ namespace IO {
         logher(INFO, "Beatmap") << "Parsed " << this->TimingPoints.size() << " timing points" << endlog;
     }
 
+    void
 
     void Beatmap::parseHitObjects(fstream &file) {
         string currentLine;
@@ -172,20 +173,21 @@ namespace IO {
                 //parseSliderArgs
                 // x,y,time,type,hitSound,curveType|curvePoints,slides,length,edgeSounds,edgeSets,hitSample
                 ho.slider_args = new SliderArgs();
-                ho.slider_args->type = (SliderType) split[5][0];
                 ho.slider_args->repeat = stoi(split[6]);
-                ho.slider_args->length = (int)stod(split[7]);
 
-                logher(DEBUG,"Beatmap")<<split[5]<<endlog;
-                //parse curve points
+                logher(DEBUG, "Beatmap") << split[5] << endlog;
+
                 auto curvePoints = StringSplit(split[5], "|");
-                ho.slider_args->points = vector<SDL_Point>();
+                vector<SDL_Point> p;
+                p.push_back({ho.x, ho.y});
 
                 for (int i = 1; i < curvePoints.size(); i++) {
                     auto curvePointSplit = StringSplit(curvePoints[i], ":");
                     auto op = SDL_Point{stoi(curvePointSplit[0]), stoi(curvePointSplit[1])};
-                    ho.slider_args->points.push_back(op);
+                    p.push_back(op);
                 }
+
+                this->resolveSlider(ho, p, (SliderType) split[5][0], stod(split[7]));
 
             } else if (type & (int) HitObjectType::Spinner) {
                 ho.type = HitObjectType::Spinner;
@@ -207,5 +209,46 @@ namespace IO {
 
     const string &Beatmap::getAudioPath() const {
         return this->audiopath;
+    }
+
+    void Beatmap::resolveSlider(HitObject &ho, vector<SDL_Point> &points, SliderType type, double length) {
+        switch (type) {
+            case SliderType::Linear: {
+                double cLen = 0;
+                auto last = points[0];
+                ho.slider_args->points.push_back(last);
+
+                auto n_points = points.size();
+                for (int i = 1; i < n_points; i++) {
+                    auto nl = cLen + Core::distance(last,points[i]);
+                    if (nl <= length) {
+                        if (i < n_points-1) {
+                            cLen = nl;
+                            last = points[i];
+                            ho.slider_args->points.push_back(last);
+                        }else {
+                            // extend last point
+                            ho.slider_args->points.push_back(Core::fix_point(last,*points.end(), length - cLen));
+                        }
+                    }else {
+                        //shorten point
+                        ho.slider_args->points.push_back(Core::fix_point(last,*points.end(), length - cLen));
+                        break;
+                    }
+                }
+                break;
+            }
+
+            case SliderType::Bezier: {
+                break;
+            }
+
+            case SliderType::Circle: {
+                break;
+            }
+
+            default:
+                logher(FATAL, "Beatmap") << "Unsupported Slider Type (Catmull)" << endlog;
+        }
     }
 }

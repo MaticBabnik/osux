@@ -1,4 +1,3 @@
-//
 //  Global include file for osux
 //
 
@@ -7,6 +6,7 @@
 #include <list>
 #include <vector>
 #include <string>
+#include <algorithm>
 
 //math stuff
 #include <cmath>
