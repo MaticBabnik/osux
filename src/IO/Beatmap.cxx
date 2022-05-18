@@ -239,9 +239,28 @@ namespace IO {
             }
 
             case SliderType::Bezier: {
-                //TODO: bezijer krv
 
-                ho.slider_args->repeat = -1;
+                double total_distance = 0;
+                auto last_accepted = points[0];
+                ho.slider_args->points.push_back(last_accepted);
+                for (double t = 0; t<1.0; t+=0.005) {
+                    auto np = Core::Bezier::bezier_point(points,t);
+                    double distance1 = Core::distance(last_accepted, np);
+                    if (distance1 > 10) {
+                        total_distance += distance1;
+                        last_accepted = np;
+                        ho.slider_args->points.push_back(last_accepted);
+                    }
+                }
+                logher(DEBUG,"Beatmap") << "Bezier length: " << total_distance << " vs wanted: " << length << endlog;
+                auto lengthDelta = length - total_distance;
+
+                if (lengthDelta > 3) {
+                    auto pop = ho.slider_args->points.back();
+                    ho.slider_args->points.pop_back();
+
+                    ho.slider_args->points.push_back(Core::fix_point(ho.slider_args->points.back()))
+                }
 
                 break;
             }

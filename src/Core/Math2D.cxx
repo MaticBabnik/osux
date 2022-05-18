@@ -87,4 +87,30 @@ double Core::angle_between_points(Core::Vec2 c, Core::Vec2 p) {
 }
 
 
+int factorial(int n) {
+    if (n == 0) return 1;
+    for (int i = n - 1; i > 1; i--)
+        n *= i;
+    return n;
+}
 
+int binomialCoefficent(int n, int k) {
+    return factorial(n) / (factorial(k) * factorial(n - k));
+}
+
+
+Core::Vec2 Core::Bezier::bezier_point(const vector<Vec2> &controlPoints, double t) {
+    if (t <= 0) return controlPoints[0];
+    if (t >= 1) return controlPoints.back();
+
+    auto n = controlPoints.size()  - 1; //math reasons
+
+       double x= 0, y = 0;
+
+        for (int i = 0; i <= n; i++) {
+            double k = binomialCoefficent(n, i) * pow(1.0 - t, n - i) * pow(t, i);
+            x += k * controlPoints[i].x;
+            y += k * controlPoints[i].y;
+        }
+    return {(int)x,(int)y};
+}

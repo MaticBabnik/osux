@@ -63,7 +63,7 @@ namespace Core {
         Vec2 catmull_rom_point(const Vec2 &p0, const Vec2 &p1, const Vec2 &p2, const Vec2 &p3, float t);
     }
     namespace Bezier {
-        Vec2 bezier_point(const vector<Vec2> &controlPoints, float t);
+        Vec2 bezier_point(const vector<Vec2> &controlPoints, double t);
     }
     namespace Circle {
     }
