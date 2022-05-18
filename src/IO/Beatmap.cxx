@@ -252,15 +252,12 @@ namespace IO {
                         ho.slider_args->points.push_back(last_accepted);
                     }
                 }
-                logher(DEBUG,"Beatmap") << "Bezier length: " << total_distance << " vs wanted: " << length << endlog;
                 auto lengthDelta = length - total_distance;
-                logher(DEBUG,"Beatmap") << "delta: " <<lengthDelta<< endlog;
 
                 if (lengthDelta > 3) {
                     //slider is too short
                     auto pop = ho.slider_args->points.back();
                     ho.slider_args->points.pop_back();
-                    logher(DEBUG,"Beatmap") << "delta: " <<lengthDelta<< endlog;
 
                     ho.slider_args->points.push_back(Core::fix_point(ho.slider_args->points.back(),pop,lengthDelta));
                 } else if (lengthDelta < 3) {
@@ -323,9 +320,6 @@ namespace IO {
 
                 if (Core::distance(ho.slider_args->points.back(), end_point) > 1) {
                     ho.slider_args->points.push_back(end_point);
-                }
-                for (int i = 0; i < ho.slider_args->points.size(); i++) {
-                    cout << i << " (sp): " << ho.slider_args->points[i].x << " " << ho.slider_args->points[i].y << endl;
                 }
                 break;
             }

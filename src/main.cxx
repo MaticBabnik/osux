@@ -19,7 +19,7 @@ using namespace Core;
 int main() {
     IO::SetupLogging();
 
-    auto beatmap = new IO::Beatmap("assets/test/main.osu");
+    auto beatmap = new IO::Beatmap("assets/test/meikaruza.osu");
 
     Engine::Init(640, 480, false);
 

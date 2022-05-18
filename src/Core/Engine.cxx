@@ -88,7 +88,7 @@ namespace Core {
             sceneManager->getActiveScene()->Render();
 
             SDL_RenderPresent(renderer);
-            SDL_Delay(10); //scuffed fps limiter
+            SDL_Delay(1); //scuffed fps limiter
         }
     }
 
