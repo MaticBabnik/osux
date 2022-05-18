@@ -25,7 +25,7 @@ namespace Osu {
         IO::Beatmap *beatmap;
         int preempt;
         int index;
-        uint globaltime = -1;
+        long long globaltime = -1;
         uint gtOffset = 0;
 
 

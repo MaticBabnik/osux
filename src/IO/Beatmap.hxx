@@ -8,6 +8,9 @@ using namespace std;
 
 //ummmm class that parses beatmaps
 //fuck ppy, fuck osu file format v14
+#define OSU_WIDTH (16 * 32)
+#define OSU_HEIGHT (12 * 32)
+
 namespace IO {
     struct TimingPoint {
         int time;

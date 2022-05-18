@@ -148,8 +148,6 @@ namespace IO {
         logher(INFO, "Beatmap") << "Parsed " << this->TimingPoints.size() << " timing points" << endlog;
     }
 
-    void
-
     void Beatmap::parseHitObjects(fstream &file) {
         string currentLine;
         while (getline(file, currentLine)) {
@@ -184,8 +182,13 @@ namespace IO {
                 for (int i = 1; i < curvePoints.size(); i++) {
                     auto curvePointSplit = StringSplit(curvePoints[i], ":");
                     auto op = SDL_Point{stoi(curvePointSplit[0]), stoi(curvePointSplit[1])};
+
                     p.push_back(op);
                 }
+
+//                for (const SDL_Point& ppp : p ) {
+//                    cout << ppp.x << " " << ppp.y << endl;
+//                }
 
                 this->resolveSlider(ho, p, (SliderType) split[5][0], stod(split[7]));
 
@@ -212,6 +215,7 @@ namespace IO {
     }
 
     void Beatmap::resolveSlider(HitObject &ho, vector<SDL_Point> &points, SliderType type, double length) {
+
         switch (type) {
             case SliderType::Linear: {
                 double cLen = 0;
@@ -219,31 +223,70 @@ namespace IO {
                 ho.slider_args->points.push_back(last);
 
                 auto n_points = points.size();
-                for (int i = 1; i < n_points; i++) {
-                    auto nl = cLen + Core::distance(last,points[i]);
-                    if (nl <= length) {
-                        if (i < n_points-1) {
-                            cLen = nl;
-                            last = points[i];
-                            ho.slider_args->points.push_back(last);
-                        }else {
-                            // extend last point
-                            ho.slider_args->points.push_back(Core::fix_point(last,*points.end(), length - cLen));
-                        }
-                    }else {
-                        //shorten point
-                        ho.slider_args->points.push_back(Core::fix_point(last,*points.end(), length - cLen));
-                        break;
-                    }
+                for (int i = 1; i < n_points - 1; i++) {
+                    cLen += Core::distance(last, points[i]);
+                    last = points[i];
+                    ho.slider_args->points.push_back(last);
                 }
+
+                auto last_segment_wanted_length = length - cLen;
+
+                auto fxp = Core::fix_point(last,points.back(),last_segment_wanted_length);
+
+                ho.slider_args->points.push_back(fxp);
+
                 break;
             }
 
             case SliderType::Bezier: {
+                //TODO: bezijer krv
+
+                ho.slider_args->repeat = -1;
+
                 break;
             }
 
             case SliderType::Circle: {
+
+
+                SDL_Point p1 = {ho.x, ho.y},
+                        p2 = points[1],
+                        p3 = points[2];
+
+                auto circle = Core::get_circle(p1, p2, p3);
+                auto orientation = Core::get_orientation(p1, p2, p3);
+
+                if (orientation == 0) {
+                    logher(FATAL, "Beatmap") << "BAD" << endlog;
+                    exit(-1);
+                }
+
+
+                auto start_angle = Core::angle_between_points(circle.center, p1);
+                auto end_angle = start_angle + (length / (circle.r)) * orientation;
+
+//                circle.r =100;
+                if (orientation > 0) {
+                    for (double a = start_angle; a < end_angle; a += (M_PI / 64)) {
+                        ho.slider_args->points.push_back({(int) (circle.center.x - cos(a) * circle.r),
+                                                          (int) (circle.center.y + sin(a) * circle.r)});
+                    }
+                } else {
+                    for (double a = start_angle; a > end_angle; a -= (M_PI / 64)) {
+                        ho.slider_args->points.push_back({(int) (circle.center.x - cos(a) * circle.r),
+                                                          (int) (circle.center.y + sin(a) * circle.r)});
+                    }
+                }
+
+                SDL_Point end_point = {(int) (circle.center.x - cos(end_angle) * circle.r),
+                                       (int) (circle.center.y + sin(end_angle) * circle.r)};
+
+                if (Core::distance(ho.slider_args->points.back(), end_point) > 1) {
+                    ho.slider_args->points.push_back(end_point);
+                }
+                for (int i = 0; i < ho.slider_args->points.size(); i++) {
+                    cout << i << " (sp): " << ho.slider_args->points[i].x << " " << ho.slider_args->points[i].y << endl;
+                }
                 break;
             }
 

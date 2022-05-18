@@ -19,9 +19,9 @@ using namespace Core;
 int main() {
     IO::SetupLogging();
 
-    auto beatmap = new IO::Beatmap("/home/babnik/Downloads/freeze/fuckme.osu");
+    auto beatmap = new IO::Beatmap("/home/babnik/.local/share/osu/exports/test/main.osu");
 
-    Engine::Init(640, 480,true);
+    Engine::Init(640, 480, false);
 
 
     for (const auto &p: textureList) { //load textures

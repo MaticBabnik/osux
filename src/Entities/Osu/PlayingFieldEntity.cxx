@@ -54,8 +54,9 @@ namespace Osu {
             if (this->beatmap->HitObjects.size() < this->index) break;
 
             auto ho = this->beatmap->HitObjects[this->index];
-
             if (ho.time - this->preempt < globaltime) { //hitobject should be rendered
+                logher(INFO,"PFE") << "Adding ent @ " << globaltime << " for " << ho.time <<endlog;
+
                 switch (ho.type) {
                     case IO::HitObjectType::HitCircle:
                         this->AddEntity(new Circle(&ho, beatmap, this));
