@@ -254,12 +254,33 @@ namespace IO {
                 }
                 logher(DEBUG,"Beatmap") << "Bezier length: " << total_distance << " vs wanted: " << length << endlog;
                 auto lengthDelta = length - total_distance;
+                logher(DEBUG,"Beatmap") << "delta: " <<lengthDelta<< endlog;
 
                 if (lengthDelta > 3) {
+                    //slider is too short
                     auto pop = ho.slider_args->points.back();
                     ho.slider_args->points.pop_back();
+                    logher(DEBUG,"Beatmap") << "delta: " <<lengthDelta<< endlog;
 
-                    ho.slider_args->points.push_back(Core::fix_point(ho.slider_args->points.back()))
+                    ho.slider_args->points.push_back(Core::fix_point(ho.slider_args->points.back(),pop,lengthDelta));
+                } else if (lengthDelta < 3) {
+                    //while slider is too long
+                    while (lengthDelta < 0) {
+                        // pop off last point
+                        auto pop = ho.slider_args->points.back();
+                        ho.slider_args->points.pop_back();
+                        // calculate new length delta
+                        auto newLengthDelta = lengthDelta + Core::distance(pop, ho.slider_args->points.back());
+                        // if the new slider is too short
+                         if (newLengthDelta >0) {
+                             //repush the shortened point
+                             ho.slider_args->points.push_back(Core::fix_point(ho.slider_args->points.back(),pop,newLengthDelta));
+                             break;
+                         }else {
+                             //change delta; continue
+                             lengthDelta = newLengthDelta;
+                         }
+                    }
                 }
 
                 break;
