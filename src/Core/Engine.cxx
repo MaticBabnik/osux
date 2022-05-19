@@ -41,6 +41,14 @@ namespace Core {
         resourceManager = new ResourceManager();
         sceneManager = new SceneManager(nullptr);
 
+        slider_blend = SDL_ComposeCustomBlendMode(
+                SDL_BLENDFACTOR_ZERO, //discard new color
+                SDL_BLENDFACTOR_ONE, //keep src color
+                SDL_BLENDOPERATION_ADD,
+                SDL_BLENDFACTOR_ONE, //keep new alpha
+                SDL_BLENDFACTOR_ZERO, //discard source alpha
+                SDL_BLENDOPERATION_ADD
+        );
 
         atexit(Free);
     }
@@ -97,6 +105,10 @@ namespace Core {
         SDL_GetWindowSize(getWindow(),&r.w,&r.h);
 
         return r;
+    }
+
+    SDL_BlendMode *Engine::getSliderBlend() {
+        return &slider_blend;
     }
 
 }

@@ -13,12 +13,20 @@ namespace Osu {
     class PlayingFieldEntity : public Core::EntityCollection {
     public:
         PlayingFieldEntity(IO::Beatmap *beatmap);
-
         uint getTime() const;
-
         SDL_Rect getField();
-
         void Render() override;
+
+        int toRealPixels(int osupixel);
+        double toRealPixels(double osupixel);
+
+        int toOsuPixels(int osupixel);
+        double toOsuPixels(double osupixel);
+
+        SDL_Point toOsuCoords(SDL_Point in);
+        SDL_Point toScreenCoords(SDL_Point in);
+
+        SDL_Rect toScreenRect(SDL_Rect in);
 
     protected:
         SDL_Rect field;
@@ -27,6 +35,7 @@ namespace Osu {
         int index;
         long long globaltime = -1;
         uint gtOffset = 0;
+        double osupx_ratio;
 
 
     };

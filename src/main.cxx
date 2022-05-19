@@ -19,9 +19,9 @@ using namespace Core;
 int main() {
     IO::SetupLogging();
 
-    auto beatmap = new IO::Beatmap("assets/test/meikaruza.osu");
+    auto beatmap = new IO::Beatmap("assets/test/maticov-test.osu");
 
-    Engine::Init(640, 480, false);
+    Engine::Init(1920, 1080, false);
 
 
     for (const auto &p: textureList) { //load textures
@@ -39,8 +39,8 @@ int main() {
     //auto krogi = Engine::resourceManager->music->load("circles","assets/nekodex-circles.mp3");
     //Mix_PlayMusic(krogi,0);
 
-    //new MenuScene()
-    Engine::RunLoop(new DefaultScene(n));
+    //
+    Engine::RunLoop(new DefaultScene(new MenuScene()));
 
     return 0;
 }

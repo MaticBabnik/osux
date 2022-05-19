@@ -231,7 +231,7 @@ namespace IO {
 
                 auto last_segment_wanted_length = length - cLen;
 
-                auto fxp = Core::fix_point(last,points.back(),last_segment_wanted_length);
+                auto fxp = Core::fix_point(last, points.back(), last_segment_wanted_length);
 
                 ho.slider_args->points.push_back(fxp);
 
@@ -243,8 +243,8 @@ namespace IO {
                 double total_distance = 0;
                 auto last_accepted = points[0];
                 ho.slider_args->points.push_back(last_accepted);
-                for (double t = 0; t<1.0; t+=0.005) {
-                    auto np = Core::Bezier::bezier_point(points,t);
+                for (double t = 0; t < 1.0; t += 0.005) {
+                    auto np = Core::Bezier::bezier_point(points, t);
                     double distance1 = Core::distance(last_accepted, np);
                     if (distance1 > 10) {
                         total_distance += distance1;
@@ -259,7 +259,7 @@ namespace IO {
                     auto pop = ho.slider_args->points.back();
                     ho.slider_args->points.pop_back();
 
-                    ho.slider_args->points.push_back(Core::fix_point(ho.slider_args->points.back(),pop,lengthDelta));
+                    ho.slider_args->points.push_back(Core::fix_point(ho.slider_args->points.back(), pop, lengthDelta));
                 } else if (lengthDelta < 3) {
                     //while slider is too long
                     while (lengthDelta < 0) {
@@ -269,14 +269,15 @@ namespace IO {
                         // calculate new length delta
                         auto newLengthDelta = lengthDelta + Core::distance(pop, ho.slider_args->points.back());
                         // if the new slider is too short
-                         if (newLengthDelta >0) {
-                             //repush the shortened point
-                             ho.slider_args->points.push_back(Core::fix_point(ho.slider_args->points.back(),pop,newLengthDelta));
-                             break;
-                         }else {
-                             //change delta; continue
-                             lengthDelta = newLengthDelta;
-                         }
+                        if (newLengthDelta > 0) {
+                            //repush the shortened point
+                            ho.slider_args->points.push_back(
+                                    Core::fix_point(ho.slider_args->points.back(), pop, newLengthDelta));
+                            break;
+                        } else {
+                            //change delta; continue
+                            lengthDelta = newLengthDelta;
+                        }
                     }
                 }
 

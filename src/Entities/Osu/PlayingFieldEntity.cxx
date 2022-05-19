@@ -7,6 +7,12 @@
 
 using namespace Core;
 using namespace std;
+
+/*
+ * 640x480
+ * 512x384
+ */
+
 namespace Osu {
     uint PlayingFieldEntity::getTime() const {
         return globaltime;
@@ -25,13 +31,26 @@ namespace Osu {
         this->preempt = (int) getArFadeinTime(beatmap->Difficulty.ApproachRate);
         this->index = 0;
 
-        this->field = {
-                window_w / 2 - OSU_WIDTH / 2,
-                window_h / 2 - OSU_HEIGHT / 2,
-                OSU_WIDTH,
-                OSU_HEIGHT
-        };
+        double aspect_ratio = (double) window_w / (double) window_h;
 
+        this->field = {0, 0, 0, 0};
+
+        if (aspect_ratio < 4.0 / 3.0) {
+            // "tall" layout
+            int nw = window_w * 0.8;
+            this->field.w = nw;
+            this->field.h = (double) nw / 4.0 * 3.0;
+        } else {
+            // "wide" layout
+            int nh = window_h * 0.8;
+            this->field.h = nh;
+            this->field.w = (double) nh / 3.0 * 4.0;
+        }
+
+        this->field.x = (window_w - this->field.w) / 2;
+        this->field.y = (window_h - this->field.h) / 2;
+
+        this->osupx_ratio = this->field.w / 512.0;
 
         this->beatmap = beatmap;
     }
@@ -55,7 +74,7 @@ namespace Osu {
 
             auto ho = this->beatmap->HitObjects[this->index];
             if (ho.time - this->preempt < globaltime) { //hitobject should be rendered
-                logher(INFO,"PFE") << "Adding ent @ " << globaltime << " for " << ho.time <<endlog;
+                logher(INFO, "PFE") << "Adding ent @ " << globaltime << " for " << ho.time << endlog;
 
                 switch (ho.type) {
                     case IO::HitObjectType::HitCircle:
@@ -85,10 +104,40 @@ namespace Osu {
             iterator++;
             i++;
             if (i > this->n_ent) {
-                logher(DEBUG, "PFE render") << "Iterator OOB, exiting render loop." << i << ">=" <<this->n_ent << endlog;
+                logher(DEBUG, "PFE render") << "Iterator OOB, exiting render loop." << i << ">=" << this->n_ent
+                                            << endlog;
                 break;
             }
         }
 
+    }
+
+    int PlayingFieldEntity::toRealPixels(int osupixel) {
+        return osupixel * osupx_ratio;
+    }
+
+    double PlayingFieldEntity::toRealPixels(double osupixel) {
+        return osupixel * osupx_ratio;
+    }
+
+    int PlayingFieldEntity::toOsuPixels(int osupixel) {
+        return osupixel / osupx_ratio;
+    }
+
+    double PlayingFieldEntity::toOsuPixels(double osupixel) {
+        return osupixel / osupx_ratio;
+    }
+
+    SDL_Point PlayingFieldEntity::toOsuCoords(SDL_Point in) {
+        return {(int) ((field.x - in.x) / osupx_ratio), (int) ((field.y - in.y) / osupx_ratio)};
+    }
+
+    SDL_Point PlayingFieldEntity::toScreenCoords(SDL_Point in) {
+        return {(int) (in.x * osupx_ratio + field.x), (int) (in.y * osupx_ratio + field.y)};
+    }
+
+    SDL_Rect PlayingFieldEntity::toScreenRect(SDL_Rect in) {
+        return {(int) (in.x * osupx_ratio + field.x), (int) (in.y * osupx_ratio + field.y), (int) (in.w * osupx_ratio),
+                (int) (in.h * osupx_ratio)};
     }
 }

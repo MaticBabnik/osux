@@ -26,6 +26,7 @@ namespace Core {
     protected:
         static inline SDL_Window *window;
         static inline SDL_Renderer *renderer;
+        static inline SDL_BlendMode slider_blend;
 
     public:
         static inline ResourceManager *resourceManager;
@@ -36,7 +37,7 @@ namespace Core {
         static SDL_Renderer *getRenderer();
 
         static SDL_Rect getPaintArea();
-
+        static SDL_BlendMode *getSliderBlend();
         [[noreturn]] static void RunLoop(Scene *firstScene);
 
         static void Init(uint w, uint h, bool fullscreen);
