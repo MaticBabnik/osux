@@ -28,6 +28,17 @@ namespace Osu {
 
         SDL_Rect toScreenRect(SDL_Rect in);
 
+        double getCurrentSliderSpeed();
+        IO::TimingPoint getMapTimedParams(long time);
+
+        void scoreHitCircleHit(long time);
+        void scoreHitCircleMiss();
+        void scoreSliderStart();
+        void scoreSliderPercentage();
+
+        void scoreSpinnerPass(int score);
+        void scoreSpinnerMiss();
+
     protected:
         SDL_Rect field;
         IO::Beatmap *beatmap;
