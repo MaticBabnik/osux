@@ -21,5 +21,5 @@ void IO::BeatmapCollection::scan() {
 }
 
 vector<string> *IO::BeatmapCollection::getBeatmaps() {
-    return nullptr;
+    return beatmaps;
 }

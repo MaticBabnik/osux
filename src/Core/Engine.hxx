@@ -15,6 +15,8 @@
 #include "Entities/TextEntity.hxx"
 #include "Entities/WifeEntity.hxx" //best entity ever
 #include "Entities/SpriteEntity.hxx"
+#include "Entities/RectEntity.hxx"
+
 #include "../IO/Config.hxx"
 
 namespace Core {

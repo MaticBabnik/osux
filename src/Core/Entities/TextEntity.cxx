@@ -24,14 +24,6 @@ namespace Core::Entities {
         textTexture = SDL_CreateTextureFromSurface(Core::Engine::getRenderer(), textSurface);
 
         SDL_QueryTexture(textTexture, nullptr, nullptr, &textRect.w, &textRect.h);
-
-    }
-
-    void TextEntity::Render() {
-        if (repaintNeeded) {
-            repaint();
-            repaintNeeded = false;
-        }
         if (centered) {
             this->textRect.x = this->origin.x - this->textRect.w / 2;
             this->textRect.y = this->origin.y - this->textRect.h / 2;
@@ -39,6 +31,14 @@ namespace Core::Entities {
             this->textRect.x = this->origin.x;
             this->textRect.y = this->origin.y;
         }
+    }
+
+    void TextEntity::Render() {
+        if (repaintNeeded) {
+            repaint();
+            repaintNeeded = false;
+        }
+
         SDL_RenderCopy(Core::Engine::getRenderer(), this->textTexture, nullptr, &this->textRect);
     }
 
@@ -75,6 +75,10 @@ namespace Core::Entities {
 
     SDL_Rect TextEntity::getRect() {
         return textRect;
+    }
+
+    void TextEntity::forceRender() {
+        repaint();
     }
 
 }

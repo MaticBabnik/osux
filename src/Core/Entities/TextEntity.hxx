@@ -23,6 +23,8 @@ namespace Core::Entities {
 
         virtual SDL_Rect getRect() override;
 
+        virtual void forceRender();
+
         ~TextEntity() override;
 
         void Render() override;
