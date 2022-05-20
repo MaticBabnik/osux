@@ -2,7 +2,7 @@
 
 using namespace std;
 
-bool IO::Config::Load() {
+bool IO::Config::load() {
     ifstream f;
     f.open("config.sux", ios::binary);
 
@@ -52,7 +52,7 @@ IO::OsuxConfig *IO::Config::getConfig() {
     return &this->cfg;
 }
 
-bool IO::Config::Save() {
+bool IO::Config::save() {
     ofstream f;
     f.open("config.sux",ios::binary | ios::trunc);
 

@@ -89,7 +89,10 @@ namespace IO {
             key = currentLine.substr(0, currentLine.find(':'));
             value = currentLine.substr(currentLine.find(':') + 1, currentLine.length() - 1);
 
-            if (key == "HPDrainRate") this->Difficulty.HPDrainRate = stod(value);
+            if (key == "HPDrainRate") this->Difficulty.HPDrainRate = stod(value); // DRAAAAAAIN GAAAANG
+            // A kej poslusas tega bladeeja
+            // On je cist jak pa drained
+            // nwm kaj to pomen
             else if (key == "CircleSize") this->Difficulty.CircleSize = stod(value);
             else if (key == "OverallDifficulty") this->Difficulty.OverallDifficulty = stod(value);
             else if (key == "ApproachRate") this->Difficulty.ApproachRate = stod(value);

@@ -3,7 +3,8 @@
 VolumeEntity::~VolumeEntity() {
     delete this->tEnt;
     delete this->tEnt2;
-    Core::Engine::sceneManager->getActiveScene()->eventManager->clearAllListeners(this);
+    auto em = Core::Engine::sceneManager->getActiveScene()->eventManager;
+    if (em != nullptr) em->clearAllListeners(this);
 }
 
 

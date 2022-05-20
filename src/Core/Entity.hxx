@@ -1,4 +1,5 @@
 #pragma once
+#include <SDL2/SDL.h> // SDL_Rect
 
 namespace Core {
 
@@ -7,6 +8,8 @@ namespace Core {
         Entity *parent;
     public:
         virtual void Render() = 0;
+
+        virtual SDL_Rect getRect();
 
         virtual ~Entity() = 0;
 

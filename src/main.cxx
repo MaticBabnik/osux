@@ -3,6 +3,7 @@
 
 #include "include.hxx"
 #include "IO/Beatmap.hxx"
+#include "IO/Config.hxx"
 #include "Textures.hxx"
 
 #include "Core/Engine.hxx"
@@ -10,20 +11,25 @@
 #include "Entities/Osu/PlayingFieldEntity.hxx"
 #include "Entities/VolumeEntity.hxx"
 #include "Scenes/BeatmapScene.hxx"
-#include "Scenes/SliderTestScene.hxx"
 #include "Scenes/MenuScene.hxx"
 #include "Core/Scenes/DefaultScene.hxx"
+#include "IO/BeatmapCollection.hxx"
 
 using namespace Core;
 
 int main() {
+    // enable colors on windows?
     IO::SetupLogging();
 
-    auto beatmap = new IO::Beatmap("assets/test/maticov-test.osu");
+    //Load config and scan beatmaps
+    Engine::LoadConf();
+    IO::BeatmapCollection::scan();
+    auto config = Engine::configManager->getConfig();
 
-    Engine::Init(1920, 1080, false);
+    //Initalize everything
+    Engine::Init(config->hres, config->vres, config->fullscreen);
 
-
+    //Preload textures
     for (const auto &p: textureList) { //load textures
         auto r = Engine::resourceManager->textures->load(p.first, p.second);
         if (r == nullptr) {
@@ -32,15 +38,9 @@ int main() {
         }
     }
 
+    // Earrape prevention
     Mix_VolumeMusic(40);
 
     logher(INFO, "osux") << "Initalization done; starting the main loop" << endlog;
-    auto n = new BeatmapScene(beatmap);
-    //auto krogi = Engine::resourceManager->music->load("circles","assets/nekodex-circles.mp3");
-    //Mix_PlayMusic(krogi,0);
-
-    //
-    Engine::RunLoop(new DefaultScene(new MenuScene()));
-
-    return 0;
+    Engine::RunLoop(new DefaultScene(new MenuScene())); //Default scene = intro screen
 }

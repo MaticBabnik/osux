@@ -27,9 +27,9 @@ namespace Core {
             dm.w =w;
             dm.h =h;
         }
-            window = SDL_CreateWindow("osuX", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, dm.w, dm.h,SDL_WINDOW_FULLSCREEN);
+            window = SDL_CreateWindow("osuX", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, dm.w, dm.h,SDL_WINDOW_SHOWN | SDL_WINDOW_FULLSCREEN);
         }else {
-            window = SDL_CreateWindow("osuX", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, w, h,0);
+            window = SDL_CreateWindow("osuX", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, w, h,SDL_WINDOW_SHOWN);
         }
         renderer = SDL_CreateRenderer(window, 0, SDL_RENDERER_ACCELERATED);
 
@@ -78,16 +78,18 @@ namespace Core {
 
     [[noreturn]] void Engine::RunLoop(Scene *firstScene) {
 
-        sceneManager->SwitchScene(firstScene);
+        sceneManager->switchScene(firstScene);
         SDL_ShowWindow(window);
 
         while (noBitches) {
+            sceneManager->switchSafePoint(); // switching scenes here _should_ not segfault
+
             SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
             SDL_RenderClear(renderer);
 
             SDL_Event e;
             while (SDL_PollEvent(&e)) {
-                sceneManager
+                    sceneManager
                         ->getActiveScene()
                         ->eventManager
                         ->dispatchEvent(&e);
@@ -109,6 +111,17 @@ namespace Core {
 
     SDL_BlendMode *Engine::getSliderBlend() {
         return &slider_blend;
+    }
+
+    void Engine::LoadConf() {
+        configManager = new IO::Config();
+
+        if (!configManager->load()) {
+            logher(WARN,"osux") << "Could not read config" << endlog;
+            if (!configManager->save()) {
+                logher(ERROR,"osux") << "Could not read or write config... using default settings" << endlog;
+            }
+        }
     }
 
 }

@@ -15,6 +15,7 @@
 #include "Entities/TextEntity.hxx"
 #include "Entities/WifeEntity.hxx" //best entity ever
 #include "Entities/SpriteEntity.hxx"
+#include "../IO/Config.hxx"
 
 namespace Core {
     //TODO: scene system, to avoid having to handle multiple entities here
@@ -31,7 +32,7 @@ namespace Core {
     public:
         static inline ResourceManager *resourceManager;
         static inline SceneManager* sceneManager;
-
+        static inline IO::Config* configManager;
         static SDL_Window *getWindow();
 
         static SDL_Renderer *getRenderer();
@@ -39,6 +40,8 @@ namespace Core {
         static SDL_Rect getPaintArea();
         static SDL_BlendMode *getSliderBlend();
         [[noreturn]] static void RunLoop(Scene *firstScene);
+
+        static void LoadConf();
 
         static void Init(uint w, uint h, bool fullscreen);
 

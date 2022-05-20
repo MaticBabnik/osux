@@ -73,4 +73,8 @@ namespace Core::Entities {
         this->repaintNeeded = true;
     }
 
+    SDL_Rect TextEntity::getRect() {
+        return textRect;
+    }
+
 }

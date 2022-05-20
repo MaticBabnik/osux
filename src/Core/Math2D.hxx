@@ -58,6 +58,8 @@ namespace Core {
 
     double angle_between_points(Vec2 c, Vec2 p);
 
+    bool hittest (const SDL_Rect &r, const Vec2 &p);
+
     namespace Catmull {
         float get_t(float t, float alpha, const Vec2 p0, const Vec2 &p1);
         Vec2 catmull_rom_point(const Vec2 &p0, const Vec2 &p1, const Vec2 &p2, const Vec2 &p3, float t);

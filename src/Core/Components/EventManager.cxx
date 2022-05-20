@@ -59,7 +59,7 @@ bool Core::EventManager::clearEventListener(void *holder, SDL_EventType type) {
 }
 
 void Core::EventManager::addEventListener(void *holder, SDL_EventType type, int priority,
-                                          function<EventControl(SDL_Event *)> handler) {
+                                          const function<EventControl(SDL_Event *)> &handler) {
 
     vector<Event> *events;
     if (eventHandlers->contains(type)) {
@@ -101,7 +101,7 @@ int Core::EventManager::dispatchEvent(SDL_Event *e) {
         try {
             auto r = ev.handler(e);
             if (r & HANDLED) c++;
-            if (r & STOP_PROPAGATION) return c;
+            if (r & STOP_PROPAGATION_BIT) return c;
         } catch (...) {
             logher(ERROR, "Events") << "Exception occured when calling event handler" << endlog;
         }

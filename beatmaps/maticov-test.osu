@@ -1,0 +1,56 @@
+﻿osu file format v14 
+
+[General]
+AudioFilename: hatsune-miku-rakuen-no-tobira.mp3
+AudioLeadIn: 00
+PreviewTime: -1
+Countdown: 1
+SampleSet: Normal
+StackLeniency: 0.7
+Mode: 0
+LetterboxInBreaks: 0
+WidescreenStoryboard: 1
+SamplesMatchPlaybackRate: 1
+
+[Editor]
+DistanceSpacing: 1
+BeatDivisor: 0
+GridSize: 32
+TimelineZoom: 1
+
+[Metadata]
+Title: adsasddsadsdsadsad
+TitleUnicode: adsasddsadsdsadsad
+Artist: 
+Creator: _ripGeorgeFloyd
+Version: 
+
+[Difficulty]
+HPDrainRate: 5
+CircleSize: 5
+OverallDifficulty: 5
+ApproachRate: 5
+SliderMultiplier: 1
+SliderTickRate: 1
+
+[Events]
+
+[TimingPoints]
+0,500,4,1,0,100,1,0
+0,-100,4,1,0,100,0,0
+1001,-100,4,1,0,100,0,0
+
+
+[HitObjects]
+40,36,1000,5,0,0:0:0:0:
+477,32,1500,1,0,0:0:0:0:
+34,29,2000,1,0,0:0:0:0:
+26,346,2500,1,0,0:0:0:0:
+50,39,3000,1,0,0:0:0:0:
+464,347,3000,1,0,0:0:0:0:
+50,39,3500,2,0,L|470:36,1,400,0:0:0:0:
+50,39,6000,2,0,L|52:342,1,300,0:0:0:0:
+50,39,8000,2,0,L|455:336,1,500,0:0:0:0:
+252,84,11000,2,0,P|378:204|227:311,1,400,0:0:0:0:
+252,84,13500,2,0,P|254:325|232:84,1,700,0:0:0:0:
+39,42,17500,2,0,B|82:327|248:98|468:360,1,500,0:0:0:0:

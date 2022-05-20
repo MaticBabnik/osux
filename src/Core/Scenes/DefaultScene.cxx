@@ -12,7 +12,7 @@ void Core::DefaultScene::Render() {
     Scene::Render();
     if (sceneTime>2000 && !giveUp) {
         if (next != nullptr) {
-            Engine::sceneManager->SwitchScene(next);
+            Engine::sceneManager->switchScene(next);
             return; // return, since any use of `this` after switching scenes is prolly UB
         }else {
             giveUp = true;

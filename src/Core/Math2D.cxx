@@ -98,6 +98,12 @@ int binomialCoefficent(int n, int k) {
     return factorial(n) / (factorial(k) * factorial(n - k));
 }
 
+bool Core::hittest(const SDL_Rect &r, const Vec2 &p) {
+    bool in_x = p.x > r.x && p.x < r.x + r.w;
+    bool in_y = p.y > r.y && p.y < r.y + r.h;
+
+    return in_x && in_y; //no idea why/how
+}
 
 Core::Vec2 Core::Bezier::bezier_point(const vector<Vec2> &controlPoints, double t) {
     if (t <= 0) return controlPoints[0];

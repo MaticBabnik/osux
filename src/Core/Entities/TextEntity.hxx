@@ -9,17 +9,19 @@ namespace Core::Entities {
     public:
         TextEntity(TTF_Font *font, SDL_Point origin, SDL_Color color, std::string text,bool centered = true);
 
-        SDL_Point getOrigin();
+        virtual SDL_Point getOrigin();
 
-        void setOrigin(SDL_Point origin);
+        virtual void setOrigin(SDL_Point origin);
 
-        SDL_Color getColor();
+        virtual SDL_Color getColor();
 
-        void setColor(SDL_Color color);
+        virtual void setColor(SDL_Color color);
 
-        string getText();
+        virtual string getText();
 
-        void setText(string text);
+        virtual void setText(string text);
+
+        virtual SDL_Rect getRect() override;
 
         ~TextEntity() override;
 

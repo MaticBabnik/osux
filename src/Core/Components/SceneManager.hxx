@@ -7,12 +7,15 @@ namespace Core {
     class SceneManager {
     protected:
         Scene *activeScene;
+        Scene *nextScene;
     public:
         SceneManager(Scene* defaultScene);
         ~SceneManager();
 
         Scene *getActiveScene();
 
-        void SwitchScene(Scene* newScene);
+        void switchScene(Scene* newScene);
+        void queueSceneSwitch(Scene* newScene);
+        void switchSafePoint();
     };
 }

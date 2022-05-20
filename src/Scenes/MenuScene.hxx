@@ -8,6 +8,9 @@
 #include "../IO/Beatmap.hxx"
 #include "../Entities/Osu/PlayingFieldEntity.hxx"
 #include "../Entities/VolumeEntity.hxx"
+#include "../Entities/UI/ButtonEntity.hxx"
+#include "SettingsScene.hxx"
+#include "AboutScene.hxx"
 
 using namespace Core;
 using namespace IO;
@@ -15,7 +18,7 @@ using namespace Osu;
 
 class MenuScene : public Scene {
 protected:
-    Entities::TextEntity *playT,*settingsT,*aboutT;
+    ButtonEntity *playT,*settingsT,*aboutT,*exitT;
     Entities::SpriteEntity *logo;
 public:
     MenuScene();

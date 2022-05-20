@@ -1,6 +1,5 @@
 #pragma once
 #include "../include.hxx"
-
 /*
  * Config file layout:
  *
@@ -34,8 +33,8 @@ namespace IO {
     protected:
         OsuxConfig cfg;
     public:
-        bool Load();
-        bool Save();
+        bool load();
+        bool save();
         OsuxConfig *getConfig();
     };
 

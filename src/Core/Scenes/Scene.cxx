@@ -6,6 +6,7 @@ Core::Scene::Scene() {
 
 Core::Scene::~Scene() {
     delete this->eventManager;
+    this->eventManager = nullptr;
 }
 
 void Core::Scene::Activate() {

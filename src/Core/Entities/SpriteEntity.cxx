@@ -7,7 +7,7 @@ Core::Entities::SpriteEntity::SpriteEntity(SDL_Texture *texture, SDL_Point origi
     if (w == -1 || h == -1)
         SDL_QueryTexture(this->texture,
                          nullptr, nullptr,
-                         &this->rect.x, &this->rect.y);
+                         &this->rect.w, &this->rect.h);
 
     if (w != -1) this->rect.w = w;
     if (h != -1) this->rect.h = h;
