@@ -2,6 +2,7 @@
 
 Core::SceneManager::SceneManager(Scene *defaultScene) {
     this->activeScene = defaultScene;
+    this->nextScene = nullptr;
 }
 
 Core::SceneManager::~SceneManager() {

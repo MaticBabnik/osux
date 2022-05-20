@@ -12,8 +12,7 @@ void Core::DefaultScene::Render() {
     Scene::Render();
     if (sceneTime>2000 && !giveUp) {
         if (next != nullptr) {
-            Engine::sceneManager->switchScene(next);
-            return; // return, since any use of `this` after switching scenes is prolly UB
+            Engine::sceneManager->queueSceneSwitch(next);
         }else {
             giveUp = true;
             constexpr SDL_Color red = {255,0,0,255};

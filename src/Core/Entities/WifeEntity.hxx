@@ -18,8 +18,6 @@ namespace Core {
     public:
         WifeEntity();
 
-        ~WifeEntity() override;
-
         void Render() override;
 
     protected:

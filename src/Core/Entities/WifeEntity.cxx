@@ -13,6 +13,4 @@ namespace Core {
         SDL_SetTextureAlphaMod(fbk, 0x44);
     }
 
-    WifeEntity::~WifeEntity() {
-    }
 }

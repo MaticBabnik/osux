@@ -6,25 +6,25 @@ void MenuScene::Activate() {
     auto roboto = Engine::resourceManager->fonts->load("roboto", "assets/roboto.ttf", 20);
     auto bounds = Engine::getPaintArea();
 
-    this->playT =     new ButtonEntity(roboto, {bounds.w / 2, bounds.h / 2 - 34}, normal, hover, "Play", false);
+    this->playT = new ButtonEntity(roboto, {bounds.w / 2, bounds.h / 2 - 34}, normal, hover, "Play", false);
     this->settingsT = new ButtonEntity(roboto, {bounds.w / 2, bounds.h / 2 - 10}, normal, hover, "Settings", false);
-    this->aboutT =    new ButtonEntity(roboto, {bounds.w / 2, bounds.h / 2 + 14}, normal, hover, "About", false);
-    this->exitT =     new ButtonEntity(roboto, {bounds.w / 2, bounds.h / 2 + 38}, normal, hover, "Exit", false);
+    this->aboutT = new ButtonEntity(roboto, {bounds.w / 2, bounds.h / 2 + 14}, normal, hover, "About", false);
+    this->exitT = new ButtonEntity(roboto, {bounds.w / 2, bounds.h / 2 + 38}, normal, hover, "Exit", false);
 
-    this->playT->setHandler([this]() {
-        // instantly switching scenes would cause a segfault, so we use queueSceneSwitch
+    this->playT->setHandler([]() {
+        Engine::sceneManager->queueSceneSwitch(new BeatmapSelectionScene());
     });
 
-    this->settingsT->setHandler([this]() {
+    this->settingsT->setHandler([]() {
         // instantly switching scenes would cause a segfault, so we use queueSceneSwitch
         Engine::sceneManager->queueSceneSwitch(new SettingsScene(Engine::configManager));
     });
 
-    this->aboutT->setHandler([this]() {
+    this->aboutT->setHandler([]() {
         Engine::sceneManager->queueSceneSwitch(new AboutScene());
     });
 
-    this->exitT->setHandler([](){
+    this->exitT->setHandler([]() {
         exit(0);
     });
 

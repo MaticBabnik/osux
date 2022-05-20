@@ -9,7 +9,7 @@ namespace Core {
         Scene *activeScene;
         Scene *nextScene;
     public:
-        SceneManager(Scene* defaultScene);
+        explicit SceneManager(Scene* defaultScene);
         ~SceneManager();
 
         Scene *getActiveScene();

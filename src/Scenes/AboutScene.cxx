@@ -3,11 +3,14 @@
 using namespace Entities;
 
 AboutScene::AboutScene() {
+    this->AddEntity(new WifeEntity());
+
     this->instructions = nullptr;
     this->bExit = nullptr;
 }
 
 void AboutScene::Activate() {
+
     auto texture = Engine::resourceManager->textures->getRawTexture("guide");
     this->instructions = new SpriteEntity(texture,{0,0},-1,-1,false);
     this->AddEntity(instructions);

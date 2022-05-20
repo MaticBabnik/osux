@@ -11,6 +11,7 @@
 #include "../Entities/UI/ButtonEntity.hxx"
 #include "SettingsScene.hxx"
 #include "AboutScene.hxx"
+#include "BeatmapSelectionScene.hxx"
 
 using namespace Core;
 using namespace IO;

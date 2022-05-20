@@ -11,5 +11,20 @@
 #include "../Entities/UI/ButtonEntity.hxx"
 
 class BeatmapSelectionScene :  public Scene {
+public:
+    BeatmapSelectionScene();
+    void Activate() override;
+protected:
+
+    Entities::TextEntity *tPlay;
+    Entities::TextEntity *tBigFilename;
+
+    ButtonEntity *bRefresh;
+    ButtonEntity *bPlay;
+    ButtonEntity *bAutoPlay;
+    ButtonEntity *bExit;
+
+    std::vector<ButtonEntity*> *bBeatmaps;
+
 
 };
