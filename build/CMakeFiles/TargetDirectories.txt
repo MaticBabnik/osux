@@ -1,3 +1,0 @@
-/home/babnik/CLionProjects/osux/build/CMakeFiles/osux.dir
-/home/babnik/CLionProjects/osux/build/CMakeFiles/edit_cache.dir
-/home/babnik/CLionProjects/osux/build/CMakeFiles/rebuild_cache.dir
