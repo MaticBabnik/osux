@@ -2,16 +2,22 @@
 
 #include "../include.hxx"
 
+#include "SdlExtensions.hxx"
+
 #include "Entity.hxx"
 #include "EntityCollection.hxx"
 
 #include "../IO/Logger.hxx"
 
 #include "Components/ResourceManager.hxx"
-#include "Components/EventManager.hxx"
+#include "Components/SceneManager.hxx"
 
 #include "Entities/TextEntity.hxx"
 #include "Entities/WifeEntity.hxx" //best entity ever
+#include "Entities/SpriteEntity.hxx"
+#include "Entities/RectEntity.hxx"
+
+#include "../IO/Config.hxx"
 
 namespace Core {
     //TODO: scene system, to avoid having to handle multiple entities here
@@ -23,21 +29,23 @@ namespace Core {
     protected:
         static inline SDL_Window *window;
         static inline SDL_Renderer *renderer;
+        static inline SDL_BlendMode slider_blend;
 
     public:
         static inline ResourceManager *resourceManager;
-
-        static inline EventManager *eventManager;
-
-        static inline EntityCollection *activeScene;
-
+        static inline SceneManager* sceneManager;
+        static inline IO::Config* configManager;
         static SDL_Window *getWindow();
 
         static SDL_Renderer *getRenderer();
 
-        [[noreturn]] static void RunLoop();
+        static SDL_Rect getPaintArea();
+        static SDL_BlendMode *getSliderBlend();
+        [[noreturn]] static void RunLoop(Scene *firstScene);
 
-        static void Init(uint w, uint h);
+        static void LoadConf();
+
+        static void Init(uint w, uint h, bool fullscreen);
 
         static void Free();
 

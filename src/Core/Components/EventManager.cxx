@@ -2,6 +2,11 @@
 
 Core::EventManager::EventManager() {
     eventHandlers = new map<SDL_EventType, vector<Event> *>();
+    //register default quit handler
+    this->addEventListener(this,SDL_QUIT,0, [] (SDL_Event *e) {
+        exit(0);
+        return EventControl::HANDLED;
+    });
 }
 
 Core::EventManager::~EventManager() {
@@ -28,15 +33,19 @@ int Core::EventManager::clearAllListeners(void *holder) {
 
     for (auto p: *eventHandlers) {
         auto events = *p.second;
-
+        vector<int> indexToDel;
         for (int i = events.size() - 1; i >= 0; i--) {
             if (events[i].holder == holder) {
-                events.erase(events.begin() + i);
-                c++;
+                indexToDel.push_back(i);
             }
         }
-    }
 
+        for (int j = 0; j < indexToDel.size();j++ ) {
+
+            events.erase(events.begin() + indexToDel[j]);
+        }
+
+    }
     return c;
 }
 
@@ -54,7 +63,7 @@ bool Core::EventManager::clearEventListener(void *holder, SDL_EventType type) {
 }
 
 void Core::EventManager::addEventListener(void *holder, SDL_EventType type, int priority,
-                                          function<EventControl(SDL_Event *)> handler) {
+                                          const function<EventControl(SDL_Event *)> &handler) {
 
     vector<Event> *events;
     if (eventHandlers->contains(type)) {
@@ -94,9 +103,10 @@ int Core::EventManager::dispatchEvent(SDL_Event *e) {
 
     for (const auto &ev: eventTypeVec) {
         try {
+
             auto r = ev.handler(e);
             if (r & HANDLED) c++;
-            if (r & STOP_PROPAGATION) return c;
+            if (r & STOP_PROPAGATION_BIT) return c;
         } catch (...) {
             logher(ERROR, "Events") << "Exception occured when calling event handler" << endlog;
         }

@@ -6,33 +6,41 @@
 
 namespace Core::Render {
 
-    size_t SetupArc(SDL_Point center, float radius, float f, SDL_FPoint *out, size_t nPointsMax) {
-        size_t n = nPointsMax * f;
-        out[0] = {(float) center.x, (float) center.y + radius};
-        if (n == 0) return 1;
-        if (n < 2) n = 2;
 
-        out[0] = {(float) center.x, (float) center.y + radius};
+    /**
+     * @brief Writes out points to form an arc
+     * @param center The center point
+     * @param r1 Inner radius
+     * @param r2 Outer radius
+     * @param f Length (0-1)
+     * @param ox output array for x points
+     * @param oy output array for y points
+     * @param nPointsMax ox and oy size
+     * @return how many points were set (pass this to the polygon function)
+     */
+    size_t SetupArc(SDL_Point center, double r1, double r2, double f, double *ox, double *oy, size_t nPointsMax) {
+        if (f == 0) return 0; //dont render anything
 
+        size_t res = nPointsMax / 2;
+        f *= 2 * numbers::pi;
+        auto step = f / (res-1);
+        double a = 0;
 
-        for (int s = 1; s < n; s++) {
-            auto f1 = f / (n - 1) * s;
-
-            out[s] = {
-                    (float) center.x + (float) sin(2 * PI * f1) * radius,
-                    (float) center.y + (float) cos(2 * PI * f1) * radius
-            };
+        //compute the outer points
+        for (int i = 0; i < res; i++) {
+            ox[i] = center.x + sin(a) * r2;
+            oy[i] = center.y + cos(a) * r2;
+            a += step;
 
         }
-        return n;
+
+        for (int i = 0; i < res; i++) {
+            a -= step;
+            ox[res + i] = center.x + sin(a) * r1;
+            oy[res + i] = center.y + cos(a) * r1;
+        }
+
+        return nPointsMax;
     }
 
-    void RenderArc(SDL_FPoint *points, size_t n, int s) {
-        auto e = Engine::getRenderer();
-
-        SDL_RenderSetScale(e, s, s);
-        SDL_SetRenderDrawBlendMode(e, SDL_BLENDMODE_BLEND); //don't know
-        SDL_RenderDrawLinesF(e, points, n);
-        SDL_RenderSetScale(e, 1, 1);
-    }
 }

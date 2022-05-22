@@ -1,0 +1,172 @@
+[
+{
+  "directory": "/home/babnik/CLionProjects/osux/build",
+  "command": "/usr/bin/clang++ -D__COMPILER_ID__=\\\"Clang[/usr/bin/clang++]\\\" -D__COMPILER_VER__=\\\"13.0.1\\\" -I/home/babnik/CLionProjects/osux/osux -I/usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/osux.dir/src/main.cxx.o -c /home/babnik/CLionProjects/osux/src/main.cxx",
+  "file": "/home/babnik/CLionProjects/osux/src/main.cxx"
+},
+{
+  "directory": "/home/babnik/CLionProjects/osux/build",
+  "command": "/usr/bin/clang++ -D__COMPILER_ID__=\\\"Clang[/usr/bin/clang++]\\\" -D__COMPILER_VER__=\\\"13.0.1\\\" -I/home/babnik/CLionProjects/osux/osux -I/usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/osux.dir/src/Core/Engine.cxx.o -c /home/babnik/CLionProjects/osux/src/Core/Engine.cxx",
+  "file": "/home/babnik/CLionProjects/osux/src/Core/Engine.cxx"
+},
+{
+  "directory": "/home/babnik/CLionProjects/osux/build",
+  "command": "/usr/bin/clang++ -D__COMPILER_ID__=\\\"Clang[/usr/bin/clang++]\\\" -D__COMPILER_VER__=\\\"13.0.1\\\" -I/home/babnik/CLionProjects/osux/osux -I/usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/osux.dir/src/IO/Beatmap.cxx.o -c /home/babnik/CLionProjects/osux/src/IO/Beatmap.cxx",
+  "file": "/home/babnik/CLionProjects/osux/src/IO/Beatmap.cxx"
+},
+{
+  "directory": "/home/babnik/CLionProjects/osux/build",
+  "command": "/usr/bin/clang++ -D__COMPILER_ID__=\\\"Clang[/usr/bin/clang++]\\\" -D__COMPILER_VER__=\\\"13.0.1\\\" -I/home/babnik/CLionProjects/osux/osux -I/usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/osux.dir/src/Entities/Osu/PlayingFieldEntity.cxx.o -c /home/babnik/CLionProjects/osux/src/Entities/Osu/PlayingFieldEntity.cxx",
+  "file": "/home/babnik/CLionProjects/osux/src/Entities/Osu/PlayingFieldEntity.cxx"
+},
+{
+  "directory": "/home/babnik/CLionProjects/osux/build",
+  "command": "/usr/bin/clang++ -D__COMPILER_ID__=\\\"Clang[/usr/bin/clang++]\\\" -D__COMPILER_VER__=\\\"13.0.1\\\" -I/home/babnik/CLionProjects/osux/osux -I/usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/osux.dir/src/Entities/Osu/HitObjects/Circle.cxx.o -c /home/babnik/CLionProjects/osux/src/Entities/Osu/HitObjects/Circle.cxx",
+  "file": "/home/babnik/CLionProjects/osux/src/Entities/Osu/HitObjects/Circle.cxx"
+},
+{
+  "directory": "/home/babnik/CLionProjects/osux/build",
+  "command": "/usr/bin/clang++ -D__COMPILER_ID__=\\\"Clang[/usr/bin/clang++]\\\" -D__COMPILER_VER__=\\\"13.0.1\\\" -I/home/babnik/CLionProjects/osux/osux -I/usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/osux.dir/src/Util/Osu.cpp.o -c /home/babnik/CLionProjects/osux/src/Util/Osu.cpp",
+  "file": "/home/babnik/CLionProjects/osux/src/Util/Osu.cpp"
+},
+{
+  "directory": "/home/babnik/CLionProjects/osux/build",
+  "command": "/usr/bin/clang++ -D__COMPILER_ID__=\\\"Clang[/usr/bin/clang++]\\\" -D__COMPILER_VER__=\\\"13.0.1\\\" -I/home/babnik/CLionProjects/osux/osux -I/usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/osux.dir/src/Entities/PerformanceMeterEntity.cxx.o -c /home/babnik/CLionProjects/osux/src/Entities/PerformanceMeterEntity.cxx",
+  "file": "/home/babnik/CLionProjects/osux/src/Entities/PerformanceMeterEntity.cxx"
+},
+{
+  "directory": "/home/babnik/CLionProjects/osux/build",
+  "command": "/usr/bin/clang++ -D__COMPILER_ID__=\\\"Clang[/usr/bin/clang++]\\\" -D__COMPILER_VER__=\\\"13.0.1\\\" -I/home/babnik/CLionProjects/osux/osux -I/usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/osux.dir/src/Core/Entities/TextEntity.cxx.o -c /home/babnik/CLionProjects/osux/src/Core/Entities/TextEntity.cxx",
+  "file": "/home/babnik/CLionProjects/osux/src/Core/Entities/TextEntity.cxx"
+},
+{
+  "directory": "/home/babnik/CLionProjects/osux/build",
+  "command": "/usr/bin/clang++ -D__COMPILER_ID__=\\\"Clang[/usr/bin/clang++]\\\" -D__COMPILER_VER__=\\\"13.0.1\\\" -I/home/babnik/CLionProjects/osux/osux -I/usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/osux.dir/src/Core/Components/ResourceManager.cxx.o -c /home/babnik/CLionProjects/osux/src/Core/Components/ResourceManager.cxx",
+  "file": "/home/babnik/CLionProjects/osux/src/Core/Components/ResourceManager.cxx"
+},
+{
+  "directory": "/home/babnik/CLionProjects/osux/build",
+  "command": "/usr/bin/clang++ -D__COMPILER_ID__=\\\"Clang[/usr/bin/clang++]\\\" -D__COMPILER_VER__=\\\"13.0.1\\\" -I/home/babnik/CLionProjects/osux/osux -I/usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/osux.dir/src/Core/EntityCollection.cxx.o -c /home/babnik/CLionProjects/osux/src/Core/EntityCollection.cxx",
+  "file": "/home/babnik/CLionProjects/osux/src/Core/EntityCollection.cxx"
+},
+{
+  "directory": "/home/babnik/CLionProjects/osux/build",
+  "command": "/usr/bin/clang++ -D__COMPILER_ID__=\\\"Clang[/usr/bin/clang++]\\\" -D__COMPILER_VER__=\\\"13.0.1\\\" -I/home/babnik/CLionProjects/osux/osux -I/usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/osux.dir/src/Core/Entity.cxx.o -c /home/babnik/CLionProjects/osux/src/Core/Entity.cxx",
+  "file": "/home/babnik/CLionProjects/osux/src/Core/Entity.cxx"
+},
+{
+  "directory": "/home/babnik/CLionProjects/osux/build",
+  "command": "/usr/bin/clang++ -D__COMPILER_ID__=\\\"Clang[/usr/bin/clang++]\\\" -D__COMPILER_VER__=\\\"13.0.1\\\" -I/home/babnik/CLionProjects/osux/osux -I/usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/osux.dir/src/IO/Logger.cxx.o -c /home/babnik/CLionProjects/osux/src/IO/Logger.cxx",
+  "file": "/home/babnik/CLionProjects/osux/src/IO/Logger.cxx"
+},
+{
+  "directory": "/home/babnik/CLionProjects/osux/build",
+  "command": "/usr/bin/clang++ -D__COMPILER_ID__=\\\"Clang[/usr/bin/clang++]\\\" -D__COMPILER_VER__=\\\"13.0.1\\\" -I/home/babnik/CLionProjects/osux/osux -I/usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/osux.dir/src/Core/Entities/WifeEntity.cxx.o -c /home/babnik/CLionProjects/osux/src/Core/Entities/WifeEntity.cxx",
+  "file": "/home/babnik/CLionProjects/osux/src/Core/Entities/WifeEntity.cxx"
+},
+{
+  "directory": "/home/babnik/CLionProjects/osux/build",
+  "command": "/usr/bin/clang++ -D__COMPILER_ID__=\\\"Clang[/usr/bin/clang++]\\\" -D__COMPILER_VER__=\\\"13.0.1\\\" -I/home/babnik/CLionProjects/osux/osux -I/usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/osux.dir/src/Core/Components/EventManager.cxx.o -c /home/babnik/CLionProjects/osux/src/Core/Components/EventManager.cxx",
+  "file": "/home/babnik/CLionProjects/osux/src/Core/Components/EventManager.cxx"
+},
+{
+  "directory": "/home/babnik/CLionProjects/osux/build",
+  "command": "/usr/bin/clang++ -D__COMPILER_ID__=\\\"Clang[/usr/bin/clang++]\\\" -D__COMPILER_VER__=\\\"13.0.1\\\" -I/home/babnik/CLionProjects/osux/osux -I/usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/osux.dir/src/Entities/VolumeEntity.cxx.o -c /home/babnik/CLionProjects/osux/src/Entities/VolumeEntity.cxx",
+  "file": "/home/babnik/CLionProjects/osux/src/Entities/VolumeEntity.cxx"
+},
+{
+  "directory": "/home/babnik/CLionProjects/osux/build",
+  "command": "/usr/bin/clang++ -D__COMPILER_ID__=\\\"Clang[/usr/bin/clang++]\\\" -D__COMPILER_VER__=\\\"13.0.1\\\" -I/home/babnik/CLionProjects/osux/osux -I/usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/osux.dir/src/Core/Render.cxx.o -c /home/babnik/CLionProjects/osux/src/Core/Render.cxx",
+  "file": "/home/babnik/CLionProjects/osux/src/Core/Render.cxx"
+},
+{
+  "directory": "/home/babnik/CLionProjects/osux/build",
+  "command": "/usr/bin/clang -D__COMPILER_ID__=\\\"Clang[/usr/bin/clang++]\\\" -D__COMPILER_VER__=\\\"13.0.1\\\" -I/home/babnik/CLionProjects/osux/osux -I/usr/include/SDL2 -g -o CMakeFiles/osux.dir/src/SDL2_gfx_bbc/SDL2_gfxPrimitives.c.o -c /home/babnik/CLionProjects/osux/src/SDL2_gfx_bbc/SDL2_gfxPrimitives.c",
+  "file": "/home/babnik/CLionProjects/osux/src/SDL2_gfx_bbc/SDL2_gfxPrimitives.c"
+},
+{
+  "directory": "/home/babnik/CLionProjects/osux/build",
+  "command": "/usr/bin/clang -D__COMPILER_ID__=\\\"Clang[/usr/bin/clang++]\\\" -D__COMPILER_VER__=\\\"13.0.1\\\" -I/home/babnik/CLionProjects/osux/osux -I/usr/include/SDL2 -g -o CMakeFiles/osux.dir/src/SDL2_gfx_bbc/SDL2_rotozoom.c.o -c /home/babnik/CLionProjects/osux/src/SDL2_gfx_bbc/SDL2_rotozoom.c",
+  "file": "/home/babnik/CLionProjects/osux/src/SDL2_gfx_bbc/SDL2_rotozoom.c"
+},
+{
+  "directory": "/home/babnik/CLionProjects/osux/build",
+  "command": "/usr/bin/clang++ -D__COMPILER_ID__=\\\"Clang[/usr/bin/clang++]\\\" -D__COMPILER_VER__=\\\"13.0.1\\\" -I/home/babnik/CLionProjects/osux/osux -I/usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/osux.dir/src/Core/Scenes/Scene.cxx.o -c /home/babnik/CLionProjects/osux/src/Core/Scenes/Scene.cxx",
+  "file": "/home/babnik/CLionProjects/osux/src/Core/Scenes/Scene.cxx"
+},
+{
+  "directory": "/home/babnik/CLionProjects/osux/build",
+  "command": "/usr/bin/clang++ -D__COMPILER_ID__=\\\"Clang[/usr/bin/clang++]\\\" -D__COMPILER_VER__=\\\"13.0.1\\\" -I/home/babnik/CLionProjects/osux/osux -I/usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/osux.dir/src/Core/Components/SceneManager.cxx.o -c /home/babnik/CLionProjects/osux/src/Core/Components/SceneManager.cxx",
+  "file": "/home/babnik/CLionProjects/osux/src/Core/Components/SceneManager.cxx"
+},
+{
+  "directory": "/home/babnik/CLionProjects/osux/build",
+  "command": "/usr/bin/clang++ -D__COMPILER_ID__=\\\"Clang[/usr/bin/clang++]\\\" -D__COMPILER_VER__=\\\"13.0.1\\\" -I/home/babnik/CLionProjects/osux/osux -I/usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/osux.dir/src/Entities/Osu/HitObjects/Slider.cxx.o -c /home/babnik/CLionProjects/osux/src/Entities/Osu/HitObjects/Slider.cxx",
+  "file": "/home/babnik/CLionProjects/osux/src/Entities/Osu/HitObjects/Slider.cxx"
+},
+{
+  "directory": "/home/babnik/CLionProjects/osux/build",
+  "command": "/usr/bin/clang++ -D__COMPILER_ID__=\\\"Clang[/usr/bin/clang++]\\\" -D__COMPILER_VER__=\\\"13.0.1\\\" -I/home/babnik/CLionProjects/osux/osux -I/usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/osux.dir/src/Core/Scenes/DefaultScene.cxx.o -c /home/babnik/CLionProjects/osux/src/Core/Scenes/DefaultScene.cxx",
+  "file": "/home/babnik/CLionProjects/osux/src/Core/Scenes/DefaultScene.cxx"
+},
+{
+  "directory": "/home/babnik/CLionProjects/osux/build",
+  "command": "/usr/bin/clang++ -D__COMPILER_ID__=\\\"Clang[/usr/bin/clang++]\\\" -D__COMPILER_VER__=\\\"13.0.1\\\" -I/home/babnik/CLionProjects/osux/osux -I/usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/osux.dir/src/Scenes/BeatmapScene.cxx.o -c /home/babnik/CLionProjects/osux/src/Scenes/BeatmapScene.cxx",
+  "file": "/home/babnik/CLionProjects/osux/src/Scenes/BeatmapScene.cxx"
+},
+{
+  "directory": "/home/babnik/CLionProjects/osux/build",
+  "command": "/usr/bin/clang++ -D__COMPILER_ID__=\\\"Clang[/usr/bin/clang++]\\\" -D__COMPILER_VER__=\\\"13.0.1\\\" -I/home/babnik/CLionProjects/osux/osux -I/usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/osux.dir/src/Core/SdlExtensions.cxx.o -c /home/babnik/CLionProjects/osux/src/Core/SdlExtensions.cxx",
+  "file": "/home/babnik/CLionProjects/osux/src/Core/SdlExtensions.cxx"
+},
+{
+  "directory": "/home/babnik/CLionProjects/osux/build",
+  "command": "/usr/bin/clang++ -D__COMPILER_ID__=\\\"Clang[/usr/bin/clang++]\\\" -D__COMPILER_VER__=\\\"13.0.1\\\" -I/home/babnik/CLionProjects/osux/osux -I/usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/osux.dir/src/Core/Math2D.cxx.o -c /home/babnik/CLionProjects/osux/src/Core/Math2D.cxx",
+  "file": "/home/babnik/CLionProjects/osux/src/Core/Math2D.cxx"
+},
+{
+  "directory": "/home/babnik/CLionProjects/osux/build",
+  "command": "/usr/bin/clang++ -D__COMPILER_ID__=\\\"Clang[/usr/bin/clang++]\\\" -D__COMPILER_VER__=\\\"13.0.1\\\" -I/home/babnik/CLionProjects/osux/osux -I/usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/osux.dir/src/Scenes/MenuScene.cxx.o -c /home/babnik/CLionProjects/osux/src/Scenes/MenuScene.cxx",
+  "file": "/home/babnik/CLionProjects/osux/src/Scenes/MenuScene.cxx"
+},
+{
+  "directory": "/home/babnik/CLionProjects/osux/build",
+  "command": "/usr/bin/clang++ -D__COMPILER_ID__=\\\"Clang[/usr/bin/clang++]\\\" -D__COMPILER_VER__=\\\"13.0.1\\\" -I/home/babnik/CLionProjects/osux/osux -I/usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/osux.dir/src/Core/Entities/SpriteEntity.cxx.o -c /home/babnik/CLionProjects/osux/src/Core/Entities/SpriteEntity.cxx",
+  "file": "/home/babnik/CLionProjects/osux/src/Core/Entities/SpriteEntity.cxx"
+},
+{
+  "directory": "/home/babnik/CLionProjects/osux/build",
+  "command": "/usr/bin/clang++ -D__COMPILER_ID__=\\\"Clang[/usr/bin/clang++]\\\" -D__COMPILER_VER__=\\\"13.0.1\\\" -I/home/babnik/CLionProjects/osux/osux -I/usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/osux.dir/src/IO/Config.cxx.o -c /home/babnik/CLionProjects/osux/src/IO/Config.cxx",
+  "file": "/home/babnik/CLionProjects/osux/src/IO/Config.cxx"
+},
+{
+  "directory": "/home/babnik/CLionProjects/osux/build",
+  "command": "/usr/bin/clang++ -D__COMPILER_ID__=\\\"Clang[/usr/bin/clang++]\\\" -D__COMPILER_VER__=\\\"13.0.1\\\" -I/home/babnik/CLionProjects/osux/osux -I/usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/osux.dir/src/Entities/UI/ButtonEntity.cxx.o -c /home/babnik/CLionProjects/osux/src/Entities/UI/ButtonEntity.cxx",
+  "file": "/home/babnik/CLionProjects/osux/src/Entities/UI/ButtonEntity.cxx"
+},
+{
+  "directory": "/home/babnik/CLionProjects/osux/build",
+  "command": "/usr/bin/clang++ -D__COMPILER_ID__=\\\"Clang[/usr/bin/clang++]\\\" -D__COMPILER_VER__=\\\"13.0.1\\\" -I/home/babnik/CLionProjects/osux/osux -I/usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/osux.dir/src/Scenes/SettingsScene.cxx.o -c /home/babnik/CLionProjects/osux/src/Scenes/SettingsScene.cxx",
+  "file": "/home/babnik/CLionProjects/osux/src/Scenes/SettingsScene.cxx"
+},
+{
+  "directory": "/home/babnik/CLionProjects/osux/build",
+  "command": "/usr/bin/clang++ -D__COMPILER_ID__=\\\"Clang[/usr/bin/clang++]\\\" -D__COMPILER_VER__=\\\"13.0.1\\\" -I/home/babnik/CLionProjects/osux/osux -I/usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/osux.dir/src/Scenes/AboutScene.cxx.o -c /home/babnik/CLionProjects/osux/src/Scenes/AboutScene.cxx",
+  "file": "/home/babnik/CLionProjects/osux/src/Scenes/AboutScene.cxx"
+},
+{
+  "directory": "/home/babnik/CLionProjects/osux/build",
+  "command": "/usr/bin/clang++ -D__COMPILER_ID__=\\\"Clang[/usr/bin/clang++]\\\" -D__COMPILER_VER__=\\\"13.0.1\\\" -I/home/babnik/CLionProjects/osux/osux -I/usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/osux.dir/src/Scenes/BeatmapSelectionScene.cxx.o -c /home/babnik/CLionProjects/osux/src/Scenes/BeatmapSelectionScene.cxx",
+  "file": "/home/babnik/CLionProjects/osux/src/Scenes/BeatmapSelectionScene.cxx"
+},
+{
+  "directory": "/home/babnik/CLionProjects/osux/build",
+  "command": "/usr/bin/clang++ -D__COMPILER_ID__=\\\"Clang[/usr/bin/clang++]\\\" -D__COMPILER_VER__=\\\"13.0.1\\\" -I/home/babnik/CLionProjects/osux/osux -I/usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/osux.dir/src/IO/BeatmapCollection.cxx.o -c /home/babnik/CLionProjects/osux/src/IO/BeatmapCollection.cxx",
+  "file": "/home/babnik/CLionProjects/osux/src/IO/BeatmapCollection.cxx"
+},
+{
+  "directory": "/home/babnik/CLionProjects/osux/build",
+  "command": "/usr/bin/clang++ -D__COMPILER_ID__=\\\"Clang[/usr/bin/clang++]\\\" -D__COMPILER_VER__=\\\"13.0.1\\\" -I/home/babnik/CLionProjects/osux/osux -I/usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/osux.dir/src/Core/Entities/RectEntity.cxx.o -c /home/babnik/CLionProjects/osux/src/Core/Entities/RectEntity.cxx",
+  "file": "/home/babnik/CLionProjects/osux/src/Core/Entities/RectEntity.cxx"
+}
+]

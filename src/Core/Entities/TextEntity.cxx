@@ -1,14 +1,16 @@
 #include "TextEntity.hxx"
 
 namespace Core::Entities {
-    TextEntity::TextEntity(TTF_Font *font, SDL_Point origin, SDL_Color color, std::string text) {
+    TextEntity::TextEntity(TTF_Font *font, SDL_Point origin, SDL_Color color, std::string text, bool centered) {
 
-        this->textRect = {origin.x, origin.y, 0, 0};
+        this->origin = origin;
 
         this->font = font;
         this->color = color;
         this->text = text;
         this->repaintNeeded = true;
+
+        this->centered = centered;
 
         this->textTexture = nullptr; //thank you CLion, very cool
         this->textSurface = nullptr;
@@ -22,7 +24,13 @@ namespace Core::Entities {
         textTexture = SDL_CreateTextureFromSurface(Core::Engine::getRenderer(), textSurface);
 
         SDL_QueryTexture(textTexture, nullptr, nullptr, &textRect.w, &textRect.h);
-
+        if (centered) {
+            this->textRect.x = this->origin.x - this->textRect.w / 2;
+            this->textRect.y = this->origin.y - this->textRect.h / 2;
+        } else {
+            this->textRect.x = this->origin.x;
+            this->textRect.y = this->origin.y;
+        }
     }
 
     void TextEntity::Render() {
@@ -40,7 +48,7 @@ namespace Core::Entities {
     }
 
     SDL_Point TextEntity::getOrigin() {
-        return {textRect.x, textRect.y};
+        return origin;
     }
 
     SDL_Color TextEntity::getColor() {
@@ -52,8 +60,7 @@ namespace Core::Entities {
     }
 
     void TextEntity::setOrigin(SDL_Point origin) {
-        this->textRect.x = origin.x;
-        this->textRect.y = origin.y;
+        this->origin = origin;
     }
 
     void TextEntity::setColor(SDL_Color color) {
@@ -64,6 +71,14 @@ namespace Core::Entities {
     void TextEntity::setText(string text) {
         this->text = text;
         this->repaintNeeded = true;
+    }
+
+    SDL_Rect TextEntity::getRect() {
+        return textRect;
+    }
+
+    void TextEntity::forceRender() {
+        repaint();
     }
 
 }

@@ -54,6 +54,27 @@ namespace Core {
         delete this->resources;
     }
 
+    template<>
+    Mix_Chunk *ResourceContainer<Mix_Chunk>::load(const string &name, const string &path) {
+        if (resources->find(name) != resources->end()) {
+            return this->resources->at(name);
+        }
+
+        auto m = Mix_LoadWAV(path.c_str());
+        if (m != nullptr) {
+            this->resources->insert(pair(name, m));
+        }
+        return m;
+    }
+
+    template<>
+    ResourceContainer<Mix_Chunk>::~ResourceContainer() {
+        for (const auto &p: *this->resources) {
+            Mix_FreeChunk(p.second);
+        }
+        delete this->resources;
+    }
+
     TTF_Font *FontManager::load(const string &name, const string &path, int size) {
         if (resources->find(name) != resources->end()) {
             return this->resources->at(name);
@@ -118,6 +139,7 @@ namespace Core {
         this->textures = new TextureManager();
         this->fonts = new FontManager();
         this->music = new ResourceContainer<Mix_Music>();
+        this->chunks = new ResourceContainer<Mix_Chunk>();
     }
 
     ResourceManager::~ResourceManager() {

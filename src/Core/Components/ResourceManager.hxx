@@ -50,6 +50,7 @@ namespace Core {
 
         FontManager *fonts;
         ResourceContainer<Mix_Music> *music;
+        ResourceContainer<Mix_Chunk> *chunks;
         TextureManager *textures;
 
         ~ResourceManager();

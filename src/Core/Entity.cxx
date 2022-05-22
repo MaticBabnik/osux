@@ -7,4 +7,8 @@ namespace Core {
 
     Entity::~Entity() {
     }
+
+    SDL_Rect Entity::getRect() {
+        return {0,0,0,0};
+    }
 }

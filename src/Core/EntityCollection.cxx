@@ -2,7 +2,8 @@
 
 namespace Core {
     EntityCollection::EntityCollection() {
-        this->entities = new std::vector<Entity *>();
+        this->entities = new std::list<Entity *>();
+        this->n_ent = 0;
     }
 
     EntityCollection::~EntityCollection() {
@@ -15,6 +16,7 @@ namespace Core {
     void EntityCollection::AddEntity(Entity *ent) {
         this->entities->push_back(ent);
         ent->setParent(this);
+        this->n_ent++;
     }
 
 
@@ -26,12 +28,13 @@ namespace Core {
                         ent));
 
         ent->setParent(nullptr);
+        this->n_ent--;
+
     }
 
     void EntityCollection::DestroyEntity(Entity *ent) {
         this->RemoveEntity(ent);
-
-        delete ent;
+        //delete ent; //memleak
     }
 
     void EntityCollection::Render() {

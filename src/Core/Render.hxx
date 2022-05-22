@@ -7,10 +7,7 @@
 #include <cmath>
 
 using namespace std::numbers;
-#define PI pi_v<float>
 
 namespace Core::Render {
-    size_t SetupArc(SDL_Point center, float radius, float f, SDL_FPoint *out, size_t nPointsMax);
-
-    void RenderArc(SDL_FPoint *points, size_t n, int s);
+    size_t SetupArc(SDL_Point center, double r1, double r2, double f, double *ox, double *oy, size_t nPointsMax);
 }

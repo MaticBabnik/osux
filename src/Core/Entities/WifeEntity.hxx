@@ -6,7 +6,7 @@
 namespace Core {
 
 /*
- *
+ * I LOVE MY WIFE
  *
  * https://www.youtube.com/watch?v=iUsecpG2bWI
  */
@@ -17,8 +17,6 @@ namespace Core {
     class WifeEntity : public Core::Entity {
     public:
         WifeEntity();
-
-        ~WifeEntity() override;
 
         void Render() override;
 
