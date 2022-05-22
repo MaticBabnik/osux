@@ -13,7 +13,9 @@
 #include <numbers>
 
 // file and console IO
+#include <iomanip>
 #include <fstream>
+#include <sstream>
 #include <iostream>
 #include <filesystem>
 

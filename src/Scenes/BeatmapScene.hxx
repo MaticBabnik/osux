@@ -14,12 +14,23 @@ using namespace Osu;
 
 class BeatmapScene : public Scene {
 protected:
-PlayingFieldEntity *playingField;
-bool playMusic;
-Beatmap *beatmap;
+    PlayingFieldEntity *playingField;
+    Entities::TextEntity *score,*acc,*combo;
+
+    bool playMusic;
+    Beatmap *beatmap;
 public:
+
+    void SetCombo(int c);
+    void SetAcc(double a);
+    void SetScore(int s);
+
     BeatmapScene(Beatmap *bm);
+
+    ~BeatmapScene();
+
     void Activate() override;
+
     void Render();
 
 };

@@ -33,15 +33,19 @@ int Core::EventManager::clearAllListeners(void *holder) {
 
     for (auto p: *eventHandlers) {
         auto events = *p.second;
-
+        vector<int> indexToDel;
         for (int i = events.size() - 1; i >= 0; i--) {
             if (events[i].holder == holder) {
-                events.erase(events.begin() + i);
-                c++;
+                indexToDel.push_back(i);
             }
         }
-    }
 
+        for (int j = 0; j < indexToDel.size();j++ ) {
+
+            events.erase(events.begin() + indexToDel[j]);
+        }
+
+    }
     return c;
 }
 
@@ -99,6 +103,7 @@ int Core::EventManager::dispatchEvent(SDL_Event *e) {
 
     for (const auto &ev: eventTypeVec) {
         try {
+
             auto r = ev.handler(e);
             if (r & HANDLED) c++;
             if (r & STOP_PROPAGATION_BIT) return c;

@@ -193,7 +193,7 @@ namespace IO {
 //                    cout << ppp.x << " " << ppp.y << endl;
 //                }
 
-                this->resolveSlider(ho, p, (SliderType) split[5][0], stod(split[7]));
+                //this->resolveSlider(ho, p, (SliderType) split[5][0], stod(split[7]));
 
             } else if (type & (int) HitObjectType::Spinner) {
                 ho.type = HitObjectType::Spinner;

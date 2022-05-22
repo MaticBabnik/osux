@@ -24,6 +24,9 @@ namespace Osu {
         bool kms; //kill myself
         SDL_Texture *texture;
         SDL_Surface *surface;
+        double pos;
+        void recalcCircle();
+
     public:
         Slider(IO::HitObject *hitObject, IO::Beatmap *beatmap, PlayingFieldEntity *playingFieldEntity);
 

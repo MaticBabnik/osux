@@ -34,7 +34,7 @@ namespace Core {
 
     void EntityCollection::DestroyEntity(Entity *ent) {
         this->RemoveEntity(ent);
-        delete ent;
+        //delete ent; //memleak
     }
 
     void EntityCollection::Render() {

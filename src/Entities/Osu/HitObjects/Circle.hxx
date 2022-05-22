@@ -23,10 +23,11 @@ namespace Osu {
 
         int x, y, time;
         int startTime;
-
+        bool canBeHit = false;
+        bool kms = false;
     public:
         Circle(IO::HitObject *hitObject, IO::Beatmap *beatmap, PlayingFieldEntity *playingFieldEntity);
-
+        ~Circle() override;
         void Render() override;
 
     private:

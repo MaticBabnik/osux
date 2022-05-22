@@ -113,14 +113,6 @@ build CMakeFiles/osux.dir/src/Core/Entities/TextEntity.cxx.o: CXX_COMPILER__osux
   OBJECT_DIR = CMakeFiles/osux.dir
   OBJECT_FILE_DIR = CMakeFiles/osux.dir/src/Core/Entities
 
-build CMakeFiles/osux.dir/src/IO/CommandLineArgs.cxx.o: CXX_COMPILER__osux_Debug /home/babnik/CLionProjects/osux/src/IO/CommandLineArgs.cxx || cmake_object_order_depends_target_osux
-  DEFINES = -D__COMPILER_ID__=\"Clang[/usr/bin/clang++]\" -D__COMPILER_VER__=\"13.0.1\"
-  DEP_FILE = CMakeFiles/osux.dir/src/IO/CommandLineArgs.cxx.o.d
-  FLAGS = -g -std=gnu++20
-  INCLUDES = -I/home/babnik/CLionProjects/osux/osux -I/usr/include/SDL2
-  OBJECT_DIR = CMakeFiles/osux.dir
-  OBJECT_FILE_DIR = CMakeFiles/osux.dir/src/IO
-
 build CMakeFiles/osux.dir/src/Core/Components/ResourceManager.cxx.o: CXX_COMPILER__osux_Debug /home/babnik/CLionProjects/osux/src/Core/Components/ResourceManager.cxx || cmake_object_order_depends_target_osux
   DEFINES = -D__COMPILER_ID__=\"Clang[/usr/bin/clang++]\" -D__COMPILER_VER__=\"13.0.1\"
   DEP_FILE = CMakeFiles/osux.dir/src/Core/Components/ResourceManager.cxx.o.d
@@ -233,6 +225,102 @@ build CMakeFiles/osux.dir/src/Core/Scenes/DefaultScene.cxx.o: CXX_COMPILER__osux
   OBJECT_DIR = CMakeFiles/osux.dir
   OBJECT_FILE_DIR = CMakeFiles/osux.dir/src/Core/Scenes
 
+build CMakeFiles/osux.dir/src/Scenes/BeatmapScene.cxx.o: CXX_COMPILER__osux_Debug /home/babnik/CLionProjects/osux/src/Scenes/BeatmapScene.cxx || cmake_object_order_depends_target_osux
+  DEFINES = -D__COMPILER_ID__=\"Clang[/usr/bin/clang++]\" -D__COMPILER_VER__=\"13.0.1\"
+  DEP_FILE = CMakeFiles/osux.dir/src/Scenes/BeatmapScene.cxx.o.d
+  FLAGS = -g -std=gnu++20
+  INCLUDES = -I/home/babnik/CLionProjects/osux/osux -I/usr/include/SDL2
+  OBJECT_DIR = CMakeFiles/osux.dir
+  OBJECT_FILE_DIR = CMakeFiles/osux.dir/src/Scenes
+
+build CMakeFiles/osux.dir/src/Core/SdlExtensions.cxx.o: CXX_COMPILER__osux_Debug /home/babnik/CLionProjects/osux/src/Core/SdlExtensions.cxx || cmake_object_order_depends_target_osux
+  DEFINES = -D__COMPILER_ID__=\"Clang[/usr/bin/clang++]\" -D__COMPILER_VER__=\"13.0.1\"
+  DEP_FILE = CMakeFiles/osux.dir/src/Core/SdlExtensions.cxx.o.d
+  FLAGS = -g -std=gnu++20
+  INCLUDES = -I/home/babnik/CLionProjects/osux/osux -I/usr/include/SDL2
+  OBJECT_DIR = CMakeFiles/osux.dir
+  OBJECT_FILE_DIR = CMakeFiles/osux.dir/src/Core
+
+build CMakeFiles/osux.dir/src/Core/Math2D.cxx.o: CXX_COMPILER__osux_Debug /home/babnik/CLionProjects/osux/src/Core/Math2D.cxx || cmake_object_order_depends_target_osux
+  DEFINES = -D__COMPILER_ID__=\"Clang[/usr/bin/clang++]\" -D__COMPILER_VER__=\"13.0.1\"
+  DEP_FILE = CMakeFiles/osux.dir/src/Core/Math2D.cxx.o.d
+  FLAGS = -g -std=gnu++20
+  INCLUDES = -I/home/babnik/CLionProjects/osux/osux -I/usr/include/SDL2
+  OBJECT_DIR = CMakeFiles/osux.dir
+  OBJECT_FILE_DIR = CMakeFiles/osux.dir/src/Core
+
+build CMakeFiles/osux.dir/src/Scenes/MenuScene.cxx.o: CXX_COMPILER__osux_Debug /home/babnik/CLionProjects/osux/src/Scenes/MenuScene.cxx || cmake_object_order_depends_target_osux
+  DEFINES = -D__COMPILER_ID__=\"Clang[/usr/bin/clang++]\" -D__COMPILER_VER__=\"13.0.1\"
+  DEP_FILE = CMakeFiles/osux.dir/src/Scenes/MenuScene.cxx.o.d
+  FLAGS = -g -std=gnu++20
+  INCLUDES = -I/home/babnik/CLionProjects/osux/osux -I/usr/include/SDL2
+  OBJECT_DIR = CMakeFiles/osux.dir
+  OBJECT_FILE_DIR = CMakeFiles/osux.dir/src/Scenes
+
+build CMakeFiles/osux.dir/src/Core/Entities/SpriteEntity.cxx.o: CXX_COMPILER__osux_Debug /home/babnik/CLionProjects/osux/src/Core/Entities/SpriteEntity.cxx || cmake_object_order_depends_target_osux
+  DEFINES = -D__COMPILER_ID__=\"Clang[/usr/bin/clang++]\" -D__COMPILER_VER__=\"13.0.1\"
+  DEP_FILE = CMakeFiles/osux.dir/src/Core/Entities/SpriteEntity.cxx.o.d
+  FLAGS = -g -std=gnu++20
+  INCLUDES = -I/home/babnik/CLionProjects/osux/osux -I/usr/include/SDL2
+  OBJECT_DIR = CMakeFiles/osux.dir
+  OBJECT_FILE_DIR = CMakeFiles/osux.dir/src/Core/Entities
+
+build CMakeFiles/osux.dir/src/IO/Config.cxx.o: CXX_COMPILER__osux_Debug /home/babnik/CLionProjects/osux/src/IO/Config.cxx || cmake_object_order_depends_target_osux
+  DEFINES = -D__COMPILER_ID__=\"Clang[/usr/bin/clang++]\" -D__COMPILER_VER__=\"13.0.1\"
+  DEP_FILE = CMakeFiles/osux.dir/src/IO/Config.cxx.o.d
+  FLAGS = -g -std=gnu++20
+  INCLUDES = -I/home/babnik/CLionProjects/osux/osux -I/usr/include/SDL2
+  OBJECT_DIR = CMakeFiles/osux.dir
+  OBJECT_FILE_DIR = CMakeFiles/osux.dir/src/IO
+
+build CMakeFiles/osux.dir/src/Entities/UI/ButtonEntity.cxx.o: CXX_COMPILER__osux_Debug /home/babnik/CLionProjects/osux/src/Entities/UI/ButtonEntity.cxx || cmake_object_order_depends_target_osux
+  DEFINES = -D__COMPILER_ID__=\"Clang[/usr/bin/clang++]\" -D__COMPILER_VER__=\"13.0.1\"
+  DEP_FILE = CMakeFiles/osux.dir/src/Entities/UI/ButtonEntity.cxx.o.d
+  FLAGS = -g -std=gnu++20
+  INCLUDES = -I/home/babnik/CLionProjects/osux/osux -I/usr/include/SDL2
+  OBJECT_DIR = CMakeFiles/osux.dir
+  OBJECT_FILE_DIR = CMakeFiles/osux.dir/src/Entities/UI
+
+build CMakeFiles/osux.dir/src/Scenes/SettingsScene.cxx.o: CXX_COMPILER__osux_Debug /home/babnik/CLionProjects/osux/src/Scenes/SettingsScene.cxx || cmake_object_order_depends_target_osux
+  DEFINES = -D__COMPILER_ID__=\"Clang[/usr/bin/clang++]\" -D__COMPILER_VER__=\"13.0.1\"
+  DEP_FILE = CMakeFiles/osux.dir/src/Scenes/SettingsScene.cxx.o.d
+  FLAGS = -g -std=gnu++20
+  INCLUDES = -I/home/babnik/CLionProjects/osux/osux -I/usr/include/SDL2
+  OBJECT_DIR = CMakeFiles/osux.dir
+  OBJECT_FILE_DIR = CMakeFiles/osux.dir/src/Scenes
+
+build CMakeFiles/osux.dir/src/Scenes/AboutScene.cxx.o: CXX_COMPILER__osux_Debug /home/babnik/CLionProjects/osux/src/Scenes/AboutScene.cxx || cmake_object_order_depends_target_osux
+  DEFINES = -D__COMPILER_ID__=\"Clang[/usr/bin/clang++]\" -D__COMPILER_VER__=\"13.0.1\"
+  DEP_FILE = CMakeFiles/osux.dir/src/Scenes/AboutScene.cxx.o.d
+  FLAGS = -g -std=gnu++20
+  INCLUDES = -I/home/babnik/CLionProjects/osux/osux -I/usr/include/SDL2
+  OBJECT_DIR = CMakeFiles/osux.dir
+  OBJECT_FILE_DIR = CMakeFiles/osux.dir/src/Scenes
+
+build CMakeFiles/osux.dir/src/Scenes/BeatmapSelectionScene.cxx.o: CXX_COMPILER__osux_Debug /home/babnik/CLionProjects/osux/src/Scenes/BeatmapSelectionScene.cxx || cmake_object_order_depends_target_osux
+  DEFINES = -D__COMPILER_ID__=\"Clang[/usr/bin/clang++]\" -D__COMPILER_VER__=\"13.0.1\"
+  DEP_FILE = CMakeFiles/osux.dir/src/Scenes/BeatmapSelectionScene.cxx.o.d
+  FLAGS = -g -std=gnu++20
+  INCLUDES = -I/home/babnik/CLionProjects/osux/osux -I/usr/include/SDL2
+  OBJECT_DIR = CMakeFiles/osux.dir
+  OBJECT_FILE_DIR = CMakeFiles/osux.dir/src/Scenes
+
+build CMakeFiles/osux.dir/src/IO/BeatmapCollection.cxx.o: CXX_COMPILER__osux_Debug /home/babnik/CLionProjects/osux/src/IO/BeatmapCollection.cxx || cmake_object_order_depends_target_osux
+  DEFINES = -D__COMPILER_ID__=\"Clang[/usr/bin/clang++]\" -D__COMPILER_VER__=\"13.0.1\"
+  DEP_FILE = CMakeFiles/osux.dir/src/IO/BeatmapCollection.cxx.o.d
+  FLAGS = -g -std=gnu++20
+  INCLUDES = -I/home/babnik/CLionProjects/osux/osux -I/usr/include/SDL2
+  OBJECT_DIR = CMakeFiles/osux.dir
+  OBJECT_FILE_DIR = CMakeFiles/osux.dir/src/IO
+
+build CMakeFiles/osux.dir/src/Core/Entities/RectEntity.cxx.o: CXX_COMPILER__osux_Debug /home/babnik/CLionProjects/osux/src/Core/Entities/RectEntity.cxx || cmake_object_order_depends_target_osux
+  DEFINES = -D__COMPILER_ID__=\"Clang[/usr/bin/clang++]\" -D__COMPILER_VER__=\"13.0.1\"
+  DEP_FILE = CMakeFiles/osux.dir/src/Core/Entities/RectEntity.cxx.o.d
+  FLAGS = -g -std=gnu++20
+  INCLUDES = -I/home/babnik/CLionProjects/osux/osux -I/usr/include/SDL2
+  OBJECT_DIR = CMakeFiles/osux.dir
+  OBJECT_FILE_DIR = CMakeFiles/osux.dir/src/Core/Entities
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target osux
@@ -241,12 +329,12 @@ build CMakeFiles/osux.dir/src/Core/Scenes/DefaultScene.cxx.o: CXX_COMPILER__osux
 #############################################
 # Link the executable osux
 
-build osux: CXX_EXECUTABLE_LINKER__osux_Debug CMakeFiles/osux.dir/src/main.cxx.o CMakeFiles/osux.dir/src/Core/Engine.cxx.o CMakeFiles/osux.dir/src/IO/Beatmap.cxx.o CMakeFiles/osux.dir/src/Entities/Osu/PlayingFieldEntity.cxx.o CMakeFiles/osux.dir/src/Entities/Osu/HitObjects/Circle.cxx.o CMakeFiles/osux.dir/src/Util/Osu.cpp.o CMakeFiles/osux.dir/src/Entities/PerformanceMeterEntity.cxx.o CMakeFiles/osux.dir/src/Core/Entities/TextEntity.cxx.o CMakeFiles/osux.dir/src/IO/CommandLineArgs.cxx.o CMakeFiles/osux.dir/src/Core/Components/ResourceManager.cxx.o CMakeFiles/osux.dir/src/Core/EntityCollection.cxx.o CMakeFiles/osux.dir/src/Core/Entity.cxx.o CMakeFiles/osux.dir/src/IO/Logger.cxx.o CMakeFiles/osux.dir/src/Core/Entities/WifeEntity.cxx.o CMakeFiles/osux.dir/src/Core/Components/EventManager.cxx.o CMakeFiles/osux.dir/src/Entities/VolumeEntity.cxx.o CMakeFiles/osux.dir/src/Core/Render.cxx.o CMakeFiles/osux.dir/src/SDL2_gfx_bbc/SDL2_gfxPrimitives.c.o CMakeFiles/osux.dir/src/SDL2_gfx_bbc/SDL2_rotozoom.c.o CMakeFiles/osux.dir/src/Core/Scenes/Scene.cxx.o CMakeFiles/osux.dir/src/Core/Components/SceneManager.cxx.o CMakeFiles/osux.dir/src/Entities/Osu/HitObjects/Slider.cxx.o CMakeFiles/osux.dir/src/Core/Scenes/DefaultScene.cxx.o | /usr/lib/libSDL2main.a /usr/lib/libSDL2-2.0.so.0.18.2 /usr/lib/libSDL2_image.so /usr/lib/libSDL2_mixer.so /usr/lib/libSDL2_ttf.so
+build osux: CXX_EXECUTABLE_LINKER__osux_Debug CMakeFiles/osux.dir/src/main.cxx.o CMakeFiles/osux.dir/src/Core/Engine.cxx.o CMakeFiles/osux.dir/src/IO/Beatmap.cxx.o CMakeFiles/osux.dir/src/Entities/Osu/PlayingFieldEntity.cxx.o CMakeFiles/osux.dir/src/Entities/Osu/HitObjects/Circle.cxx.o CMakeFiles/osux.dir/src/Util/Osu.cpp.o CMakeFiles/osux.dir/src/Entities/PerformanceMeterEntity.cxx.o CMakeFiles/osux.dir/src/Core/Entities/TextEntity.cxx.o CMakeFiles/osux.dir/src/Core/Components/ResourceManager.cxx.o CMakeFiles/osux.dir/src/Core/EntityCollection.cxx.o CMakeFiles/osux.dir/src/Core/Entity.cxx.o CMakeFiles/osux.dir/src/IO/Logger.cxx.o CMakeFiles/osux.dir/src/Core/Entities/WifeEntity.cxx.o CMakeFiles/osux.dir/src/Core/Components/EventManager.cxx.o CMakeFiles/osux.dir/src/Entities/VolumeEntity.cxx.o CMakeFiles/osux.dir/src/Core/Render.cxx.o CMakeFiles/osux.dir/src/SDL2_gfx_bbc/SDL2_gfxPrimitives.c.o CMakeFiles/osux.dir/src/SDL2_gfx_bbc/SDL2_rotozoom.c.o CMakeFiles/osux.dir/src/Core/Scenes/Scene.cxx.o CMakeFiles/osux.dir/src/Core/Components/SceneManager.cxx.o CMakeFiles/osux.dir/src/Entities/Osu/HitObjects/Slider.cxx.o CMakeFiles/osux.dir/src/Core/Scenes/DefaultScene.cxx.o CMakeFiles/osux.dir/src/Scenes/BeatmapScene.cxx.o CMakeFiles/osux.dir/src/Core/SdlExtensions.cxx.o CMakeFiles/osux.dir/src/Core/Math2D.cxx.o CMakeFiles/osux.dir/src/Scenes/MenuScene.cxx.o CMakeFiles/osux.dir/src/Core/Entities/SpriteEntity.cxx.o CMakeFiles/osux.dir/src/IO/Config.cxx.o CMakeFiles/osux.dir/src/Entities/UI/ButtonEntity.cxx.o CMakeFiles/osux.dir/src/Scenes/SettingsScene.cxx.o CMakeFiles/osux.dir/src/Scenes/AboutScene.cxx.o CMakeFiles/osux.dir/src/Scenes/BeatmapSelectionScene.cxx.o CMakeFiles/osux.dir/src/IO/BeatmapCollection.cxx.o CMakeFiles/osux.dir/src/Core/Entities/RectEntity.cxx.o | /usr/lib/libSDL2main.a /usr/lib/libSDL2-2.0.so.0.22.0 /usr/lib/libSDL2_image.so /usr/lib/libSDL2_mixer.so /usr/lib/libSDL2_ttf.so
   FLAGS = -g
-  LINK_LIBRARIES = -lm  /usr/lib/libSDL2main.a  /usr/lib/libSDL2-2.0.so.0.18.2  /usr/lib/libSDL2_image.so  /usr/lib/libSDL2_mixer.so  /usr/lib/libSDL2_ttf.so
+  LINK_LIBRARIES = -lm  /usr/lib/libSDL2main.a  /usr/lib/libSDL2-2.0.so.0.22.0  /usr/lib/libSDL2_image.so  /usr/lib/libSDL2_mixer.so  /usr/lib/libSDL2_ttf.so
   OBJECT_DIR = CMakeFiles/osux.dir
-  POST_BUILD = :
-  PRE_LINK = cd /home/babnik/CLionProjects/osux/build && /usr/bin/cmake -E copy_directory /home/babnik/CLionProjects/osux/assets/ /home/babnik/CLionProjects/osux/build/assets/ && cd /home/babnik/CLionProjects/osux/build
+  POST_BUILD = cd /home/babnik/CLionProjects/osux/build && /usr/bin/cmake -E copy_directory /home/babnik/CLionProjects/osux/assets/ /home/babnik/CLionProjects/osux/build/assets/ && cd /home/babnik/CLionProjects/osux/build && /usr/bin/cmake -E copy_directory /home/babnik/CLionProjects/osux/beatmaps/ /home/babnik/CLionProjects/osux/build/beatmaps/
+  PRE_LINK = :
   TARGET_FILE = osux
   TARGET_PDB = osux.dbg
 

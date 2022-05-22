@@ -41,6 +41,9 @@ int main() {
     // Earrape prevention
     Mix_VolumeMusic(40);
 
+    auto intro = Engine::resourceManager->music->load("triangles","assets/triangles.mp3");
+    Mix_PlayMusic(intro,0);
+
     logher(INFO, "osux") << "Initalization done; starting the main loop" << endlog;
     Engine::RunLoop(new DefaultScene(new MenuScene())); //Default scene = intro screen
 }

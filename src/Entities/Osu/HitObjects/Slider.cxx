@@ -18,16 +18,11 @@ Osu::Slider::Slider(IO::HitObject *hitObject, IO::Beatmap *beatmap, Osu::Playing
     this->x = hitObject->x;
     this->y = hitObject->y;
     this->time = hitObject->time;
+    this->pos = 0;
 
     this->sz = getCsSize(beatmap->Difficulty.CircleSize) / 2;
 
-    auto s = getCsSize(beatmap->Difficulty.CircleSize);
 
-    this->rect.w = this->rect.h = s;
-    this->rect.x = this->x - s / 2;
-    this->rect.y = this->y - s / 2;
-
-    this->rect = this->parent->toScreenRect(rect);
 
     this->n_points = hitObject->slider_args->points.size();
     this->points = new SDL_Point[n_points];
@@ -55,10 +50,36 @@ void Osu::Slider::Render() {
         return;
     }
 
-    if (time + 2000 < t) {
-        this->parent->DestroyEntity(this);
-        return;
+    if (time < t) {
+        auto lifetime = t - time;
+
+        auto nPos = parent->getSliderPos(lifetime);
+        cout<< nPos<<endl;
+        double tDist = 0;
+        bool end = false;
+
+        for (int i = 1; i < this->n_points; i++) {
+            auto sDist = Core::distance(points[i-1],points[i]);
+
+            if (tDist + sDist > pos) {
+                auto p = Core::fix_point(points[i-1],points[i], sDist - (pos -tDist));
+                x = p.x;
+                y = p.y;
+                recalcCircle();
+                end = false;
+                break;
+            }
+            tDist += sDist;
+            end = true;
+        }
+
+        if (end) {
+            parent->DestroyEntity(this);
+        }
+
     }
+
+
     auto r = Core::Engine::getRenderer();
 
     SDL_RenderCopy(r,texture, nullptr, nullptr);
@@ -66,4 +87,13 @@ void Osu::Slider::Render() {
     SDL_RenderCopy(r, Core::Engine::resourceManager->textures->getRawTexture("hitcircle_normal"),
                    nullptr, &rect);
 
+}
+
+void Osu::Slider::recalcCircle() {
+    auto s = sz *2;
+    this->rect.w = this->rect.h = s;
+    this->rect.x = this->x - s / 2;
+    this->rect.y = this->y - s / 2;
+
+    this->rect = this->parent->toScreenRect(rect);
 }

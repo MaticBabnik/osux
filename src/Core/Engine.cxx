@@ -34,7 +34,7 @@ namespace Core {
         renderer = SDL_CreateRenderer(window, 0, SDL_RENDERER_ACCELERATED);
 
         Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 1024);
-        Mix_AllocateChannels(8);
+        Mix_AllocateChannels(16);
 
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 
@@ -98,7 +98,7 @@ namespace Core {
             sceneManager->getActiveScene()->Render();
 
             SDL_RenderPresent(renderer);
-            SDL_Delay(1); //scuffed fps limiter
+            SDL_Delay(5); //scuffed fps limiter
         }
     }
 
