@@ -7,6 +7,7 @@
 #include <SDL2/SDL_image.h>
 
 #include "./Scenes/DefaultScene.hxx"
+
 namespace Core {
 
     constexpr auto noBitches = true; //haha very funny
@@ -19,17 +20,18 @@ namespace Core {
         Mix_Init(MIX_INIT_FLAC | MIX_INIT_MP3 | MIX_INIT_OGG | MIX_INIT_OPUS);
         if (fullscreen) {
 
-        SDL_DisplayMode dm;
-        auto code = SDL_GetDesktopDisplayMode(0,&dm);
-        if (code != 0) {
-            logher(ERROR,"Engine") << "Couldn't get display mode: "<< code <<endlog;
+            SDL_DisplayMode dm;
+            auto code = SDL_GetDesktopDisplayMode(0, &dm);
+            if (code != 0) {
+                logher(ERROR, "Engine") << "Couldn't get display mode: " << code << endlog;
 
-            dm.w =w;
-            dm.h =h;
-        }
-            window = SDL_CreateWindow("osuX", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, dm.w, dm.h,SDL_WINDOW_SHOWN | SDL_WINDOW_FULLSCREEN);
-        }else {
-            window = SDL_CreateWindow("osuX", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, w, h,SDL_WINDOW_SHOWN);
+                dm.w = w;
+                dm.h = h;
+            }
+            window = SDL_CreateWindow("osuX", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, dm.w, dm.h,
+                                      SDL_WINDOW_SHOWN | SDL_WINDOW_FULLSCREEN);
+        } else {
+            window = SDL_CreateWindow("osuX", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, w, h, SDL_WINDOW_SHOWN);
         }
         renderer = SDL_CreateRenderer(window, 0, SDL_RENDERER_ACCELERATED);
 
@@ -89,7 +91,7 @@ namespace Core {
 
             SDL_Event e;
             while (SDL_PollEvent(&e)) {
-                    sceneManager
+                sceneManager
                         ->getActiveScene()
                         ->eventManager
                         ->dispatchEvent(&e);
@@ -103,8 +105,8 @@ namespace Core {
     }
 
     SDL_Rect Engine::getPaintArea() {
-        SDL_Rect r {-1,-1,0,0};
-        SDL_GetWindowSize(getWindow(),&r.w,&r.h);
+        SDL_Rect r{-1, -1, 0, 0};
+        SDL_GetWindowSize(getWindow(), &r.w, &r.h);
 
         return r;
     }
@@ -117,9 +119,9 @@ namespace Core {
         configManager = new IO::Config();
 
         if (!configManager->load()) {
-            logher(WARN,"osux") << "Could not read config" << endlog;
+            logher(WARN, "osux") << "Could not read config" << endlog;
             if (!configManager->save()) {
-                logher(ERROR,"osux") << "Could not read or write config... using default settings" << endlog;
+                logher(ERROR, "osux") << "Could not read or write config... using default settings" << endlog;
             }
         }
     }
