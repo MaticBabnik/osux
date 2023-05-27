@@ -1,0 +1,3 @@
+# I didn't write SDL2_gfx_bbc so I don't want it to count into my C stats
+# Probably should have used a git submodule, don't know why I didn't
+src/SDL2_gfx_bbc/* linguist-vendored
